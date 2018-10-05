@@ -1,0 +1,2834 @@
+@charset "UTF-8";
+/* === COLOR === */
+@font-face {
+  font-family: "Stolzl-Regular";
+  src: url("../fonts/stolzl-regular.otf"); }
+
+@font-face {
+  font-family: "Stolzl";
+  src: url("../fonts/stolzl.otf"); }
+
+@font-face {
+  font-family: "Stolzl-Light";
+  src: url("../fonts/stolzl-light.otf"); }
+
+/* === FONTS === */
+/* ===== ОБЩИЕ НАСТРОЙКИ ===== */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Stolzl-Light', sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #393939;
+  background-color: #F0F0F0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Stolzl', sans-serif; }
+
+a {
+  color: #393939; }
+  a:hover {
+    text-decoration: none;
+    color: #7CCE6C; }
+
+.btn-custom, .btnBack, .modal_window_bg .modal_window .buttons_modal_block .btn-modal-confirm, .modal_window_bg .modal_window .buttons_modal_block .btn-modal-cancel {
+  padding: 5px 20px;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid #4d4d4d;
+  font-family: "Stolzl", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: #393939;
+  background: -webkit-gradient(linear, left bottom, left top, from(#7CCE6C), to(#d9fcd3));
+  background: -webkit-linear-gradient(bottom, #7CCE6C, #d9fcd3);
+  background: -o-linear-gradient(bottom, #7CCE6C, #d9fcd3);
+  background: linear-gradient(to top, #7CCE6C, #d9fcd3);
+  -webkit-box-shadow: 0 0 5px #4d4d4d;
+  box-shadow: 0 0 5px #4d4d4d; }
+  .btn-custom:hover, .btnBack:hover, .modal_window_bg .modal_window .buttons_modal_block .btn-modal-confirm:hover, .modal_window_bg .modal_window .buttons_modal_block .btn-modal-cancel:hover, .btn-custom:focus, .btnBack:focus, .modal_window_bg .modal_window .buttons_modal_block .btn-modal-confirm:focus, .modal_window_bg .modal_window .buttons_modal_block .btn-modal-cancel:focus {
+    -webkit-box-shadow: inset 0 0 10px #4d4d4d;
+    box-shadow: inset 0 0 10px #4d4d4d;
+    background: -webkit-gradient(linear, left bottom, left top, from(#7FD0FF), to(#FFF));
+    background: -webkit-linear-gradient(bottom, #7FD0FF, #FFF);
+    background: -o-linear-gradient(bottom, #7FD0FF, #FFF);
+    background: linear-gradient(to top, #7FD0FF, #FFF);
+    outline: none; }
+
+.btnBack {
+  display: block;
+  padding: 5px 15px;
+  margin-bottom: 50px; }
+  .btnBack__icon {
+    display: inline-block;
+    margin-right: 10px; }
+
+.check_mark {
+  background-image: url("../images/check_mark.png");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  display: block; }
+
+.check_warn {
+  background-image: url("../images/check_warn.png");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  display: block; }
+
+.check_waiting,
+.check_in_working,
+.check_executed,
+.check_rejected {
+  position: relative;
+  top: 4px;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  display: inline-block; }
+
+.check_waiting {
+  background-image: url("../images/waiting.png");
+  -webkit-background-size: cover;
+  background-size: cover; }
+
+.check_in_working {
+  background-image: url("../images/in_working.png");
+  -webkit-background-size: cover;
+  background-size: cover; }
+
+.check_executed {
+  background-image: url("../images/executed.png");
+  -webkit-background-size: cover;
+  background-size: cover; }
+
+.check_rejected {
+  background-image: url("../images/rejected.png");
+  -webkit-background-size: cover;
+  background-size: cover; }
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #D7D7D7;
+  font-style: italic; }
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #D7D7D7;
+  font-style: italic; }
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #D7D7D7;
+  font-style: italic; }
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #D7D7D7;
+  font-style: italic; }
+
+input[type=checkbox],
+input[type=radio] {
+  display: none; }
+
+input[type=checkbox] + label.head:before {
+  margin-left: 15px; }
+
+input[type=checkbox] + label:before {
+  content: "\2713";
+  color: transparent;
+  background-color: #FFF;
+  display: inline-block;
+  border: 1px solid #D7D7D7;
+  font-size: 20px;
+  line-height: 20px;
+  height: 23px;
+  width: 23px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer; }
+
+input[type=checkbox]:checked + label:before {
+  color: #FFF;
+  background: -webkit-gradient(linear, left bottom, left top, from(#61A054), to(#d9fcd3));
+  background: -webkit-linear-gradient(bottom, #61A054, #d9fcd3);
+  background: -o-linear-gradient(bottom, #61A054, #d9fcd3);
+  background: linear-gradient(to top, #61A054, #d9fcd3);
+  border: 1px solid transparent;
+  -webkit-border-image: -webkit-gradient(linear, left bottom, left top, from(#61A054), to(#d9fcd3));
+  -webkit-border-image: -webkit-linear-gradient(bottom, #61A054, #d9fcd3);
+  -o-border-image: -o-linear-gradient(bottom, #61A054, #d9fcd3);
+  border-image: -webkit-gradient(linear, left bottom, left top, from(#61A054), to(#d9fcd3));
+  border-image: linear-gradient(to top, #61A054, #d9fcd3);
+  border-image-slice: 1;
+  -webkit-box-shadow: 0 0 2px #4d4d4d;
+  box-shadow: 0 0 2px #4d4d4d; }
+
+input:focus,
+textarea:focus {
+  outline: 2px solid #7CCE6C;
+  background-color: #FFF !important; }
+
+button:disabled,
+input:disabled {
+  background: -webkit-gradient(linear, left bottom, left top, from(#D7D7D7), to(#FFF));
+  background: -webkit-linear-gradient(bottom, #D7D7D7, #FFF);
+  background: -o-linear-gradient(bottom, #D7D7D7, #FFF);
+  background: linear-gradient(to top, #D7D7D7, #FFF);
+  cursor: default; }
+
+label {
+  margin: 0;
+  padding: 0; }
+
+select {
+  position: relative;
+  display: inline-block;
+  height: 35px;
+  background: -webkit-gradient(linear, left bottom, left top, from(#D7D7D7), to(#FFF));
+  background: -webkit-linear-gradient(bottom, #D7D7D7, #FFF);
+  background: -o-linear-gradient(bottom, #D7D7D7, #FFF);
+  background: linear-gradient(to top, #D7D7D7, #FFF);
+  border: 1px solid #D7D7D7;
+  padding: 5px 10px;
+  font-size: 14px;
+  -webkit-box-shadow: 1px 1px 1px #999;
+  box-shadow: 1px 1px 1px #999; }
+  select:focus {
+    outline: none; }
+
+.endSession,
+.server_error {
+  position: fixed;
+  left: 60%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  display: none;
+  width: 500px;
+  padding: 15px;
+  margin: 0 auto 30px;
+  border: 1px solid #FE4D44;
+  background-color: #FED8D6;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  -webkit-box-shadow: 1px 2px 5px #4d4d4d;
+  box-shadow: 1px 2px 5px #4d4d4d;
+  z-index: 999; }
+
+.error_valid {
+  border: 1px solid #FE4D44 !important;
+  background-color: #FED8D6 !important; }
+
+.user_delete,
+.discount_delete {
+  width: 500px;
+  padding: 15px;
+  margin: 0 auto 30px;
+  border: 1px solid #7CCE6C;
+  background-color: #d9fcd3;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  -webkit-box-shadow: 1px 2px 5px #4d4d4d;
+  box-shadow: 1px 2px 5px #4d4d4d; }
+
+.searchBlock {
+  position: relative;
+  display: inline-block;
+  width: 269px;
+  height: 35px; }
+  .searchBlock__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 35px;
+    padding: 5px 10px;
+    border: 1px solid #4d4d4d; }
+  .searchBlock__btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 70px;
+    height: 35px;
+    line-height: 34px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #393939;
+    font-weight: bold;
+    color: #4d4d4d;
+    background: -webkit-gradient(linear, left bottom, left top, from(#7CCE6C), to(#d9fcd3));
+    background: -webkit-linear-gradient(bottom, #7CCE6C, #d9fcd3);
+    background: -o-linear-gradient(bottom, #7CCE6C, #d9fcd3);
+    background: linear-gradient(to top, #7CCE6C, #d9fcd3); }
+    .searchBlock__btn:hover, .searchBlock__btn:focus {
+      -webkit-box-shadow: inset 0 0 10px #4d4d4d;
+      box-shadow: inset 0 0 10px #4d4d4d;
+      background: -webkit-gradient(linear, left bottom, left top, from(#7FD0FF), to(#FFF));
+      background: -webkit-linear-gradient(bottom, #7FD0FF, #FFF);
+      background: -o-linear-gradient(bottom, #7FD0FF, #FFF);
+      background: linear-gradient(to top, #7FD0FF, #FFF); }
+
+/* === toggle class === */
+.icon-profile_rotate {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg); }
+
+.autocomplete-suggestions {
+  width: auto !important;
+  border: 1px solid #D7D7D7;
+  background: #FFF;
+  cursor: pointer;
+  overflow: auto;
+  -webkit-box-shadow: 2px 2px 5px #4d4d4d;
+  -moz-box-shadow: 2px 2px 5px #4d4d4d;
+  box-shadow: 2px 2px 5px #4d4d4d; }
+
+.autocomplete-suggestion {
+  padding: 2px 5px;
+  white-space: nowrap;
+  overflow: hidden; }
+
+.autocomplete-no-suggestion {
+  padding: 2px 5px; }
+
+.autocomplete-selected {
+  background: #B8E5FF; }
+
+.autocomplete-suggestions strong {
+  font-family: "Stolzl-Regular", sans-serif;
+  font-weight: bold;
+  color: #393939; }
+
+.autocomplete-group {
+  padding: 2px 5px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #393939;
+  display: block;
+  border-bottom: 1px solid #393939; }
+
+/* === AUTOCOMPLETE === */
+.ui-datepicker select.ui-datepicker-month,
+.ui-datepicker select.ui-datepicker-year {
+  margin: 0 3px 2px;
+  padding: 2px;
+  height: 26px; }
+
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+  position: absolute;
+  top: 4px; }
+
+.ui-datepicker .ui-datepicker-prev-hover,
+.ui-datepicker .ui-datepicker-next-hover {
+  position: absolute;
+  top: 4px; }
+
+.ui-state-default,
+.ui-widget-content .ui-state-default {
+  font-family: 'Stolzl', sans-serif;
+  text-align: center; }
+
+.ui-state-active,
+.ui-widget-content .ui-state-active {
+  border: 1px solid #61A054;
+  background: #61A054;
+  color: #FFF; }
+
+/* === DATEPICKER === */
+li.ui-state-default {
+  color: #393939;
+  background-color: #d9fcd3;
+  border: 1px solid #7CCE6C; }
+
+li.ui-state-highlight {
+  color: #393939;
+  background-color: #FED8D6;
+  border: 1px solid #FE4D44; }
+
+li.ui-state-disabled {
+  display: none !important; }
+
+.connectedSortable {
+  display: inline-block;
+  border: 1px solid #D7D7D7;
+  background-color: #FFF;
+  width: 100%;
+  height: 500px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  vertical-align: top;
+  overflow: auto; }
+  .connectedSortable li {
+    width: 160px;
+    min-height: 32px;
+    line-height: 20px;
+    float: left;
+    cursor: move;
+    margin: 5px;
+    padding: 5px;
+    font-size: 14px; }
+
+/* === UI LIST === */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top right, rgba(57, 95, 50, 0.7), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7), rgba(57, 95, 50, 0.7));
+  z-index: 999;
+  display: none; }
+  #preloader #loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #61A054;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite; }
+    #preloader #loader:before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      right: 5px;
+      bottom: 5px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #7CCE6C;
+      -webkit-animation: spin 3s linear infinite;
+      animation: spin 3s linear infinite; }
+    #preloader #loader:after {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: 15px;
+      bottom: 15px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #d9fcd3;
+      -webkit-animation: spin 1.5s linear infinite;
+      animation: spin 1.5s linear infinite; }
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+/* === PRELOADER === */
+table.tablesorter {
+  width: 100%;
+  margin: 25px 0;
+  text-align: left; }
+  table.tablesorter thead tr th {
+    position: relative;
+    background: linear-gradient(to top, #D7D7D7, #FFF);
+    border: 1px solid #D7D7D7;
+    font-family: "Stolzl-Regular", sans-serif;
+    font-weight: bold;
+    padding: 10px 25px 10px 10px;
+    vertical-align: middle;
+    cursor: pointer; }
+    table.tablesorter thead tr th:hover {
+      background: linear-gradient(to top, #B8E5FF, #FFF) !important; }
+  table.tablesorter thead tr th .arrow_sort {
+    background-image: url(../images/arrow_double.png);
+    display: inline-block;
+    width: 15px;
+    height: 21px;
+    position: absolute;
+    top: 12px;
+    right: 5px; }
+  table.tablesorter thead tr th .arrow_up {
+    background-image: url(../images/arrow_up.png);
+    display: inline-block;
+    width: 15px;
+    height: 9px;
+    position: absolute;
+    top: 18px;
+    right: 5px; }
+  table.tablesorter thead tr th .arrow_down {
+    background-image: url(../images/arrow_down.png);
+    display: inline-block;
+    width: 15px;
+    height: 9px;
+    position: absolute;
+    top: 18px;
+    right: 5px; }
+  table.tablesorter tbody tr:hover td {
+    background-color: #d9fcd3;
+    cursor: pointer; }
+  table.tablesorter tbody tr td {
+    height: 41px;
+    padding: 5px;
+    vertical-align: middle;
+    background-color: #fff;
+    border: 1px solid #D7D7D7; }
+    table.tablesorter tbody tr td a:hover {
+      color: #393939; }
+  table.tablesorter tbody tr td.nothing_found {
+    text-align: center;
+    color: #FE4D44;
+    font-weight: 600; }
+
+/* === TABLESORTER === */
+.modal_window_bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  overflow: auto; }
+  .modal_window_bg .modal_window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: auto;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: #393939;
+    background-color: #F0F0F0;
+    border: 2px solid #1a1a1a;
+    padding: 30px 15px;
+    text-align: center;
+    -webkit-box-shadow: 0 0 10px #d9fcd3;
+    -moz-box-shadow: 0 0 10px #d9fcd3;
+    box-shadow: 0 0 10px #d9fcd3; }
+    .modal_window_bg .modal_window .buttons_modal_block {
+      margin-top: 30px;
+      margin-bottom: 15px; }
+      .modal_window_bg .modal_window .buttons_modal_block .btn-modal-confirm {
+        margin: 0 10px; }
+      .modal_window_bg .modal_window .buttons_modal_block .btn-modal-cancel {
+        background: linear-gradient(to top, #FE4D44, #FED8D6); }
+    .modal_window_bg .modal_window h4 {
+      margin-bottom: 30px; }
+    .modal_window_bg .modal_window .tariff_block {
+      text-align: left;
+      margin: 10px 20px; }
+      .modal_window_bg .modal_window .tariff_block span {
+        display: inline-block;
+        width: 170px;
+        font-weight: 600; }
+      .modal_window_bg .modal_window .tariff_block label {
+        margin: 0; }
+      .modal_window_bg .modal_window .tariff_block .modal_inp {
+        width: 150px;
+        height: 35px;
+        border: 1px solid #D7D7D7;
+        padding: 0 5px; }
+
+/* === MODAL WINDOW === */
+.header_nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 65px;
+  background-color: #393939;
+  color: #fff;
+  z-index: 99; }
+  .header_nav #js-open_menu {
+    display: inline-block;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 35px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-left: 315px;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear; }
+  .header_nav .user_block {
+    position: relative;
+    float: right;
+    padding: 20px;
+    /* === выпадающий список === */ }
+    .header_nav .user_block .user {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer; }
+      .header_nav .user_block .user .user_profile {
+        display: inline-block;
+        overflow: hidden;
+        max-width: 135px;
+        border: none;
+        margin: 0 15px; }
+      .header_nav .user_block .user:hover {
+        color: #7CCE6C; }
+    .header_nav .user_block ul.user_list {
+      width: 240px;
+      list-style: none;
+      position: absolute;
+      top: 65px;
+      right: 0;
+      margin: 0;
+      padding: 0;
+      background-color: #393939;
+      border-top: 1px solid #4d4d4d;
+      border-bottom: 1px solid #1a1a1a;
+      text-align: center;
+      display: none; }
+      .header_nav .user_block ul.user_list li {
+        margin: 0;
+        padding: 0; }
+        .header_nav .user_block ul.user_list li .btn-logout {
+          color: #fff;
+          padding: 10px 25px;
+          display: block;
+          font-family: "Stolzl", sans-serif;
+          cursor: pointer; }
+          .header_nav .user_block ul.user_list li .btn-logout:hover {
+            color: #393939;
+            -webkit-box-shadow: inset 0 0 25px #1a1a1a;
+            -moz-box-shadow: inset 0 0 25px #1a1a1a;
+            box-shadow: inset 0 0 25px #1a1a1a;
+            background-color: #7CCE6C; }
+          .header_nav .user_block ul.user_list li .btn-logout .icon-logout {
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            transform: rotate(180deg);
+            margin-right: 5px; }
+
+/* === USER BLOCK === */
+#sidebar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #393939;
+  z-index: 99;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -ms-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  transition: all 0.3s linear; }
+  #sidebar-wrapper .admin_text {
+    position: relative;
+    height: 65px;
+    line-height: 65px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 29px;
+    font-style: italic;
+    color: #7CCE6C;
+    text-shadow: 1px 1px #4d4d4d, -1px -1px #1a1a1a; }
+  #sidebar-wrapper ul.sidebar-tabs-header {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    #sidebar-wrapper ul.sidebar-tabs-header li {
+      margin: 0;
+      padding: 0; }
+      #sidebar-wrapper ul.sidebar-tabs-header li a {
+        text-decoration: none;
+        position: relative;
+        display: block;
+        width: 100%;
+        padding: 15px 15px;
+        cursor: pointer;
+        text-align: center;
+        border-top: 1px solid #4d4d4d;
+        border-bottom: 1px solid #1a1a1a;
+        font-family: "Stolzl", sans-serif;
+        color: #E4E4E4;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        -ms-transition: all .3s;
+        -o-transition: all .3s;
+        transition: all .3s; }
+        #sidebar-wrapper ul.sidebar-tabs-header li a.active {
+          color: #393939;
+          -webkit-box-shadow: inset 0 0 15px #1a1a1a;
+          -moz-box-shadow: inset 0 0 15px #1a1a1a;
+          box-shadow: inset 0 0 15px #1a1a1a;
+          background-color: #7CCE6C; }
+        #sidebar-wrapper ul.sidebar-tabs-header li a:hover {
+          color: #393939;
+          -webkit-box-shadow: inset 0 0 15px #1a1a1a;
+          -moz-box-shadow: inset 0 0 15px #1a1a1a;
+          box-shadow: inset 0 0 15px #1a1a1a;
+          background-color: #7CCE6C; }
+
+/* === SIDEBAR WRAPPER === */
+/* === MAIN CONTENT == */
+.main-content {
+  margin-left: 300px;
+  margin-top: 65px;
+  padding: 30px 50px;
+  -webkit-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  /* === ОСНОВНАЯ === */
+  /* ===== ТРАНСПОРТ ===== */
+  /* ===== ТРАНСПОРТ/ЭКРАН ===== */
+  /* ===== КЛИЕНТ ===== */
+  /* ===== КЛИЕНТ/ЭКРАН ===== */
+  /* ===== ЗАКАЗЫ ===== */
+  /* ===== ЗАКАЗЫ/ЭКРАН ===== */
+  /* ===== ДОКУМЕНТЫ/СПИСОК ===== */
+  /* ===== СОЗДАНИЕ/РЕДАКТИРОВАНИЕ ДОКУМЕНТА ===== */
+  /* ===== ИНФОРМАЦИЯ О ДОКУМЕНТЕ ===== */
+  /* ===== СКИДКИ ===== */
+  /* ===== СКИДКА/РЕДАКТИРОВАНИЕ ===== */
+  /* ===== СКИДКА/СТАТИСТИКА ===== */
+  /* ===== ЗАКАЗЫ ===== */
+  /* ===== НАСТРОЙКИ ===== */
+  /* ===== УВЕДОМЛЕНИЯ ===== */ }
+  .main-content .main_page h4 {
+    font-weight: bold; }
+  .main-content .main_page .btnNav {
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0; }
+    .main-content .main_page .btnNav .btn-custom, .main-content .main_page .btnNav .btnBack, .main-content .main_page .btnNav .modal_window_bg .modal_window .buttons_modal_block .btn-modal-confirm, .modal_window_bg .modal_window .buttons_modal_block .main-content .main_page .btnNav .btn-modal-confirm, .main-content .main_page .btnNav .modal_window_bg .modal_window .buttons_modal_block .btn-modal-cancel, .modal_window_bg .modal_window .buttons_modal_block .main-content .main_page .btnNav .btn-modal-cancel {
+      padding: 5px 10px;
+      margin-right: -1px;
+      font-size: 14px;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none; }
+      .main-content .main_page .btnNav .btn-custom:hover, .main-content .main_page .btnNav .btnBack:hover, .main-content .main_page .btnNav .modal_window_bg .modal_window .buttons_modal_block .btn-modal-confirm:hover, .modal_window_bg .modal_window .buttons_modal_block .main-content .main_page .btnNav .btn-modal-confirm:hover, .main-content .main_page .btnNav .modal_window_bg .modal_window .buttons_modal_block .btn-modal-cancel:hover, .modal_window_bg .modal_window .buttons_modal_block .main-content .main_page .btnNav .btn-modal-cancel:hover, .main-content .main_page .btnNav .btn-custom:focus, .main-content .main_page .btnNav .btnBack:focus, .main-content .main_page .btnNav .modal_window_bg .modal_window .buttons_modal_block .btn-modal-confirm:focus, .modal_window_bg .modal_window .buttons_modal_block .main-content .main_page .btnNav .btn-modal-confirm:focus, .main-content .main_page .btnNav .modal_window_bg .modal_window .buttons_modal_block .btn-modal-cancel:focus, .modal_window_bg .modal_window .buttons_modal_block .main-content .main_page .btnNav .btn-modal-cancel:focus {
+        -webkit-box-shadow: inset 0 0 10px #4d4d4d;
+        -moz-box-shadow: inset 0 0 10px #4d4d4d;
+        box-shadow: inset 0 0 10px #4d4d4d;
+        background: linear-gradient(to top, #7FD0FF, #FFF); }
+  .main-content .main_page .dateNav {
+    width: 800px;
+    padding: 5px 10px;
+    border: 1px solid #D7D7D7;
+    font-family: "Stolzl", sans-serif;
+    background: linear-gradient(to top, #D7D7D7, #FFF); }
+    .main-content .main_page .dateNav__name {
+      display: inline-block;
+      font-weight: 600; }
+    .main-content .main_page .dateNav__input {
+      width: 100px;
+      height: 30px;
+      padding: 5px;
+      border: 1px solid #D7D7D7;
+      margin-left: 5px;
+      margin-right: 10px;
+      text-align: center; }
+    .main-content .main_page .dateNav .btn-custom, .main-content .main_page .dateNav .btnBack, .main-content .main_page .dateNav .modal_window_bg .modal_window .buttons_modal_block .btn-modal-confirm, .modal_window_bg .modal_window .buttons_modal_block .main-content .main_page .dateNav .btn-modal-confirm, .main-content .main_page .dateNav .modal_window_bg .modal_window .buttons_modal_block .btn-modal-cancel, .modal_window_bg .modal_window .buttons_modal_block .main-content .main_page .dateNav .btn-modal-cancel {
+      float: right;
+      height: 30px;
+      padding: 3px 10px;
+      font-size: 14px; }
+  .main-content .main_page #js-bar_block {
+    width: 800px;
+    background-color: #fff;
+    border: 1px solid #D7D7D7;
+    padding: 30px 15px;
+    margin-top: -1px;
+    margin-bottom: 30px; }
+  .main-content .main_page #js-warning {
+    font-weight: 600;
+    margin-top: 20px; }
+    .main-content .main_page #js-warning .errorMsg {
+      display: flex;
+      align-items: center;
+      margin: 15px 0; }
+      .main-content .main_page #js-warning .errorMsg:before {
+        content: '';
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        background: url("../images/check_warn.png") center center no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover; }
+      .main-content .main_page #js-warning .errorMsg__message, .main-content .main_page #js-warning .errorMsg__name, .main-content .main_page #js-warning .errorMsg__date {
+        display: inline-block;
+        margin-left: 20px; }
+  .main-content .main_page .list_notices {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 18px;
+    color: #61A054;
+    text-decoration: underline;
+    margin-top: 10px; }
+  .main-content .transport .transport_nav .transport_filter {
+    display: inline-block;
+    height: 36px;
+    padding: 5px 20px;
+    margin-left: 30px;
+    font-weight: 600;
+    color: #393939;
+    border: 1px solid #4d4d4d;
+    background: linear-gradient(to top, #7CCE6C, #d9fcd3); }
+    .main-content .transport .transport_nav .transport_filter label {
+      position: relative;
+      top: -2px;
+      margin-left: 20px; }
+  .main-content .transport .transport_nav .search_block {
+    position: relative;
+    display: block;
+    width: 269px;
+    height: 35px;
+    float: right;
+    margin-bottom: 15px; }
+    .main-content .transport .transport_nav .search_block input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 35px;
+      padding: 5px 10px;
+      border: 1px solid #4d4d4d; }
+    .main-content .transport .transport_nav .search_block .btn-search {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 70px;
+      height: 35px;
+      cursor: pointer;
+      text-align: center;
+      border: 1px solid #393939;
+      font-weight: bold;
+      color: #4d4d4d;
+      background: linear-gradient(to top, #7CCE6C, #d9fcd3); }
+      .main-content .transport .transport_nav .search_block .btn-search:hover, .main-content .transport .transport_nav .search_block .btn-search:focus {
+        -webkit-box-shadow: inset 0 0 10px #4d4d4d;
+        -moz-box-shadow: inset 0 0 10px #4d4d4d;
+        box-shadow: inset 0 0 10px #4d4d4d;
+        background: linear-gradient(to top, #7FD0FF, #FFF); }
+  .main-content .transport .transport_list table#table_transport tbody tr td .img_table {
+    display: block;
+    width: 100px; }
+  .main-content .transport .transport_list table#table_transport tbody tr td .check_warn,
+  .main-content .transport .transport_list table#table_transport tbody tr td .check_mark {
+    float: left; }
+  .main-content .transport_screen .warning_block .warning_window_true,
+  .main-content .transport_screen .warning_block .warning_window_false {
+    position: fixed;
+    left: 60%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background-color: #7CCE6C;
+    padding: 10px 30px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    font-size: 16px;
+    -webkit-box-shadow: 2px 2px 5px #4d4d4d;
+    -moz-box-shadow: 2px 2px 5px #4d4d4d;
+    box-shadow: 2px 2px 5px #4d4d4d;
+    display: none;
+    z-index: 999; }
+  .main-content .transport_screen .warning_block .warning_window_false {
+    background-color: #FE4D44; }
+  .main-content .transport_screen .btn-back-list-transport {
+    margin-bottom: 25px;
+    padding: 5px 15px;
+    display: block; }
+    .main-content .transport_screen .btn-back-list-transport .icon-back-list-transport {
+      margin-right: 10px; }
+  .main-content .transport_screen .status_company {
+    display: inline-block;
+    float: left;
+    padding: 20px 0; }
+    .main-content .transport_screen .status_company .check_mark,
+    .main-content .transport_screen .status_company .check_warn {
+      display: inline-block;
+      margin-right: 10px; }
+  .main-content .transport_screen .name_company_block {
+    padding: 20px;
+    font-weight: 600;
+    font-size: 18px;
+    display: inline-block;
+    float: left; }
+    .main-content .transport_screen .name_company_block .checkbox {
+      vertical-align: top;
+      margin: 0 3px 0 0;
+      width: 17px;
+      height: 17px; }
+      .main-content .transport_screen .name_company_block .checkbox:not(checked) {
+        position: absolute;
+        opacity: 0; }
+        .main-content .transport_screen .name_company_block .checkbox:not(checked) + label.ios-switch {
+          position: relative;
+          display: inline-block;
+          width: 50px;
+          height: 26px; }
+        .main-content .transport_screen .name_company_block .checkbox:not(checked) + label.ios-switch:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 50px;
+          height: 26px;
+          border-radius: 13px;
+          border: 1px solid #AAAEB5;
+          -webkit-box-shadow: inset 0 0 0 0 #C4C7D0;
+          -moz-box-shadow: inset 0 0 0 0 #C4C7D0;
+          box-shadow: inset 0 0 0 0 #C4C7D0;
+          -webkit-transition: border 0.3s, box-shadow 0.3s;
+          -moz-transition: border 0.3s, box-shadow 0.3s;
+          -ms-transition: border 0.3s, box-shadow 0.3s;
+          -o-transition: border 0.3s, box-shadow 0.3s;
+          transition: border 0.3s, box-shadow 0.3s;
+          background-color: #E4E4E4;
+          cursor: pointer; }
+        .main-content .transport_screen .name_company_block .checkbox:not(checked) + label.ios-switch:after {
+          content: '';
+          position: absolute;
+          top: 2px;
+          left: 2px;
+          width: 22px;
+          height: 22px;
+          border-radius: 10px;
+          background: #FFF;
+          -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+          -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+          -webkit-transition: all .2s;
+          -moz-transition: all .2s;
+          -ms-transition: all .2s;
+          -o-transition: all .2s;
+          transition: all .2s;
+          cursor: pointer; }
+      .main-content .transport_screen .name_company_block .checkbox:checked + label.ios-switch:before {
+        -webkit-box-shadow: inset 0 0 0 16px #7CCE6C;
+        -moz-box-shadow: inset 0 0 0 16px #7CCE6C;
+        box-shadow: inset 0 0 0 16px #7CCE6C;
+        -webkit-transition: border 0.3s, box-shadow 0.3s, background-color 0.3s;
+        -moz-transition: border 0.3s, box-shadow 0.3s, background-color 0.3s;
+        -ms-transition: border 0.3s, box-shadow 0.3s, background-color 0.3s;
+        -o-transition: border 0.3s, box-shadow 0.3s, background-color 0.3s;
+        transition: border 0.3s, box-shadow 0.3s, background-color 0.3s;
+        background-color: #7CCE6C;
+        border: 1px solid #7CCE6C; }
+      .main-content .transport_screen .name_company_block .checkbox:checked + label.ios-switch:after {
+        left: 26px; }
+  .main-content .transport_screen #status_company_active {
+    display: inline-block;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 600; }
+  .main-content .transport_screen #logo_company {
+    display: inline-block;
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    width: 300px;
+    padding: 20px;
+    font-weight: 600;
+    font-size: 18px; }
+    .main-content .transport_screen #logo_company img {
+      width: 100%; }
+  .main-content .transport_screen .companyInfo {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    height: 35px; }
+    .main-content .transport_screen .companyInfo__name {
+      display: inline-block;
+      width: 240px;
+      line-height: 35px;
+      font-weight: 600;
+      vertical-align: top; }
+    .main-content .transport_screen .companyInfo__input, .main-content .transport_screen .companyInfo__time, .main-content .transport_screen .companyInfo__site {
+      width: 250px;
+      height: 35px;
+      padding: 5px 12px;
+      border: 1px solid #D7D7D7;
+      background-color: #FFF; }
+    .main-content .transport_screen .companyInfo__time {
+      display: inline-block;
+      font-weight: 600;
+      cursor: default; }
+    .main-content .transport_screen .companyInfo__site {
+      display: inline-block; }
+      .main-content .transport_screen .companyInfo__site #site_href {
+        color: #61A054; }
+        .main-content .transport_screen .companyInfo__site #site_href:hover {
+          text-decoration: underline; }
+    .main-content .transport_screen .companyInfo__icon {
+      margin-left: 15px;
+      cursor: pointer; }
+      .main-content .transport_screen .companyInfo__icon:hover {
+        color: #7CCE6C; }
+    .main-content .transport_screen .companyInfo #site_company {
+      display: none; }
+  .main-content .transport_screen .buttons_block {
+    margin: 30px 0; }
+  .main-content .transport_screen .tariff_types {
+    margin: 30px 0; }
+    .main-content .transport_screen .tariff_types #tariff_types {
+      display: table; }
+      .main-content .transport_screen .tariff_types #tariff_types .tariff_row {
+        display: table-row; }
+        .main-content .transport_screen .tariff_types #tariff_types .tariff_row .tariff_cell {
+          display: table-cell;
+          padding: 10px 30px;
+          font-weight: 600; }
+          .main-content .transport_screen .tariff_types #tariff_types .tariff_row .tariff_cell input.tariff_inp {
+            width: 100px;
+            height: 35px;
+            padding: 5px 10px;
+            border: 1px solid #D7D7D7;
+            background-color: #FFF; }
+          .main-content .transport_screen .tariff_types #tariff_types .tariff_row .tariff_cell input.check_trans[type=checkbox],
+          .main-content .transport_screen .tariff_types #tariff_types .tariff_row .tariff_cell input.check_trans[type=radio] {
+            display: none; }
+          .main-content .transport_screen .tariff_types #tariff_types .tariff_row .tariff_cell input.check_trans[type=checkbox] + label:before {
+            content: "\2713";
+            color: transparent;
+            background-color: #FFF;
+            display: inline-block;
+            border: 1px solid #D7D7D7;
+            font-size: 20px;
+            line-height: 20px;
+            height: 23px;
+            width: 23px;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer; }
+          .main-content .transport_screen .tariff_types #tariff_types .tariff_row .tariff_cell input.check_trans[type=checkbox] + label:before {
+            content: "\2713";
+            color: transparent;
+            background-color: #FFF;
+            display: inline-block;
+            border: 1px solid #D7D7D7;
+            font-size: 20px;
+            line-height: 20px;
+            height: 23px;
+            width: 23px;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer; }
+          .main-content .transport_screen .tariff_types #tariff_types .tariff_row .tariff_cell input.check_trans[type=checkbox]:checked + label:before {
+            color: #FFF;
+            background: linear-gradient(to top, #61A054, #d9fcd3);
+            border: 1px solid transparent;
+            border-image: linear-gradient(to top, #61A054, #d9fcd3);
+            border-image-slice: 1;
+            -webkit-box-shadow: 0 0 2px #4d4d4d;
+            -moz-box-shadow: 0 0 2px #4d4d4d;
+            box-shadow: 0 0 2px #4d4d4d; }
+          .main-content .transport_screen .tariff_types #tariff_types .tariff_row .tariff_cell label {
+            margin: 0; }
+    .main-content .transport_screen .tariff_types .btn_add_tariff {
+      margin-top: 20px;
+      margin-left: 30px;
+      padding: 5px 10px; }
+  .main-content .transport_screen .payer_types {
+    margin-bottom: 30px; }
+    .main-content .transport_screen .payer_types #payer_types {
+      display: table; }
+      .main-content .transport_screen .payer_types #payer_types .payer_row,
+      .main-content .transport_screen .payer_types #payer_types .payment_row {
+        display: block; }
+        .main-content .transport_screen .payer_types #payer_types .payer_row .payment_cell:nth-child(2),
+        .main-content .transport_screen .payer_types #payer_types .payment_row .payment_cell:nth-child(2) {
+          width: 370px; }
+        .main-content .transport_screen .payer_types #payer_types .payer_row .payer_cell,
+        .main-content .transport_screen .payer_types #payer_types .payer_row .payment_cell,
+        .main-content .transport_screen .payer_types #payer_types .payment_row .payer_cell,
+        .main-content .transport_screen .payer_types #payer_types .payment_row .payment_cell {
+          display: inline-block;
+          padding: 5px 15px;
+          font-weight: 600;
+          vertical-align: middle; }
+          .main-content .transport_screen .payer_types #payer_types .payer_row .payer_cell select.payment_select,
+          .main-content .transport_screen .payer_types #payer_types .payer_row .payment_cell select.payment_select,
+          .main-content .transport_screen .payer_types #payer_types .payment_row .payer_cell select.payment_select,
+          .main-content .transport_screen .payer_types #payer_types .payment_row .payment_cell select.payment_select {
+            height: 35px;
+            padding: 5px 10px;
+            border: 1px solid #D7D7D7;
+            background-color: #FFF; }
+          .main-content .transport_screen .payer_types #payer_types .payer_row .payer_cell input.payment_inp,
+          .main-content .transport_screen .payer_types #payer_types .payer_row .payment_cell input.payment_inp,
+          .main-content .transport_screen .payer_types #payer_types .payment_row .payer_cell input.payment_inp,
+          .main-content .transport_screen .payer_types #payer_types .payment_row .payment_cell input.payment_inp {
+            width: 100px;
+            height: 35px;
+            padding: 5px 10px;
+            border: 1px solid #D7D7D7;
+            background-color: #FFF; }
+          .main-content .transport_screen .payer_types #payer_types .payer_row .payer_cell input.check_trans[type=checkbox],
+          .main-content .transport_screen .payer_types #payer_types .payer_row .payer_cell input.check_trans[type=radio],
+          .main-content .transport_screen .payer_types #payer_types .payer_row .payment_cell input.check_trans[type=checkbox],
+          .main-content .transport_screen .payer_types #payer_types .payer_row .payment_cell input.check_trans[type=radio],
+          .main-content .transport_screen .payer_types #payer_types .payment_row .payer_cell input.check_trans[type=checkbox],
+          .main-content .transport_screen .payer_types #payer_types .payment_row .payer_cell input.check_trans[type=radio],
+          .main-content .transport_screen .payer_types #payer_types .payment_row .payment_cell input.check_trans[type=checkbox],
+          .main-content .transport_screen .payer_types #payer_types .payment_row .payment_cell input.check_trans[type=radio] {
+            display: none; }
+          .main-content .transport_screen .payer_types #payer_types .payer_row .payer_cell input.check_trans[type=checkbox] + label.head:before,
+          .main-content .transport_screen .payer_types #payer_types .payer_row .payment_cell input.check_trans[type=checkbox] + label.head:before,
+          .main-content .transport_screen .payer_types #payer_types .payment_row .payer_cell input.check_trans[type=checkbox] + label.head:before,
+          .main-content .transport_screen .payer_types #payer_types .payment_row .payment_cell input.check_trans[type=checkbox] + label.head:before {
+            margin-left: 15px; }
+          .main-content .transport_screen .payer_types #payer_types .payer_row .payer_cell input.check_trans[type=checkbox] + label:before,
+          .main-content .transport_screen .payer_types #payer_types .payer_row .payment_cell input.check_trans[type=checkbox] + label:before,
+          .main-content .transport_screen .payer_types #payer_types .payment_row .payer_cell input.check_trans[type=checkbox] + label:before,
+          .main-content .transport_screen .payer_types #payer_types .payment_row .payment_cell input.check_trans[type=checkbox] + label:before {
+            content: "\2713";
+            color: transparent;
+            background-color: #FFF;
+            display: inline-block;
+            border: 1px solid #D7D7D7;
+            font-size: 20px;
+            line-height: 20px;
+            height: 23px;
+            width: 23px;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer; }
+          .main-content .transport_screen .payer_types #payer_types .payer_row .payer_cell input.check_trans[type=checkbox]:checked + label:before,
+          .main-content .transport_screen .payer_types #payer_types .payer_row .payment_cell input.check_trans[type=checkbox]:checked + label:before,
+          .main-content .transport_screen .payer_types #payer_types .payment_row .payer_cell input.check_trans[type=checkbox]:checked + label:before,
+          .main-content .transport_screen .payer_types #payer_types .payment_row .payment_cell input.check_trans[type=checkbox]:checked + label:before {
+            color: #FFF;
+            background: linear-gradient(to top, #61A054, #d9fcd3);
+            border: 1px solid transparent;
+            border-image: linear-gradient(to top, #61A054, #d9fcd3);
+            border-image-slice: 1;
+            -webkit-box-shadow: 0 0 2px #4d4d4d;
+            -moz-box-shadow: 0 0 2px #4d4d4d;
+            box-shadow: 0 0 2px #4d4d4d; }
+          .main-content .transport_screen .payer_types #payer_types .payer_row .payer_cell label.head,
+          .main-content .transport_screen .payer_types #payer_types .payer_row .payment_cell label.head,
+          .main-content .transport_screen .payer_types #payer_types .payment_row .payer_cell label.head,
+          .main-content .transport_screen .payer_types #payer_types .payment_row .payment_cell label.head {
+            margin-left: 0;
+            margin-bottom: 0; }
+          .main-content .transport_screen .payer_types #payer_types .payer_row .payer_cell label,
+          .main-content .transport_screen .payer_types #payer_types .payer_row .payment_cell label,
+          .main-content .transport_screen .payer_types #payer_types .payment_row .payer_cell label,
+          .main-content .transport_screen .payer_types #payer_types .payment_row .payment_cell label {
+            margin-left: 60px;
+            margin-bottom: 0; }
+  .main-content .transport_screen .documents {
+    margin-bottom: 30px; }
+    .main-content .transport_screen .documents #document_types {
+      display: table; }
+      .main-content .transport_screen .documents #document_types .doc_row {
+        display: table-row; }
+        .main-content .transport_screen .documents #document_types .doc_row .doc_cell {
+          display: table-cell;
+          padding: 7px 15px;
+          font-weight: 600; }
+          .main-content .transport_screen .documents #document_types .doc_row .doc_cell input.check_trans[type=checkbox],
+          .main-content .transport_screen .documents #document_types .doc_row .doc_cell input.check_trans[type=radio] {
+            display: none; }
+          .main-content .transport_screen .documents #document_types .doc_row .doc_cell input.check_trans[type=checkbox] + label:before {
+            content: "\2713";
+            color: transparent;
+            background-color: #FFF;
+            display: inline-block;
+            border: 1px solid #D7D7D7;
+            font-size: 20px;
+            line-height: 20px;
+            height: 23px;
+            width: 23px;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer; }
+          .main-content .transport_screen .documents #document_types .doc_row .doc_cell input.check_trans[type=checkbox]:checked + label:before {
+            color: #FFF;
+            background: linear-gradient(to top, #61A054, #d9fcd3);
+            border: 1px solid transparent;
+            border-image: linear-gradient(to top, #61A054, #d9fcd3);
+            border-image-slice: 1;
+            -webkit-box-shadow: 0 0 2px #4d4d4d;
+            -moz-box-shadow: 0 0 2px #4d4d4d;
+            box-shadow: 0 0 2px #4d4d4d; }
+          .main-content .transport_screen .documents #document_types .doc_row .doc_cell label {
+            margin-left: 60px;
+            margin-bottom: 0; }
+          .main-content .transport_screen .documents #document_types .doc_row .doc_cell #icon_edit_doc,
+          .main-content .transport_screen .documents #document_types .doc_row .doc_cell #icon_delete_doc {
+            cursor: pointer;
+            width: 19px;
+            height: 21px;
+            display: block; }
+          .main-content .transport_screen .documents #document_types .doc_row .doc_cell #icon_edit_doc {
+            background-image: url(../images/icon-edit.png);
+            background-repeat: no-repeat;
+            -webkit-background-size: cover;
+            background-size: cover; }
+          .main-content .transport_screen .documents #document_types .doc_row .doc_cell #icon_delete_doc {
+            background-image: url(../images/icon-delete.png);
+            background-repeat: no-repeat;
+            -webkit-background-size: cover;
+            background-size: cover; }
+    .main-content .transport_screen .documents .btn-add-document {
+      padding: 5px 20px;
+      margin: 15px 0 25px 70px; }
+  .main-content .transport_screen .requisites {
+    margin-bottom: 30px; }
+    .main-content .transport_screen .requisites textarea {
+      width: 500px;
+      height: 100px;
+      padding: 5px;
+      margin-left: 30px;
+      border: 1px solid #D7D7D7;
+      line-height: 18px; }
+  .main-content .clients .search_block {
+    position: relative;
+    display: block;
+    width: 269px;
+    height: 35px;
+    float: right;
+    margin-bottom: 15px; }
+    .main-content .clients .search_block input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 35px;
+      padding: 5px 10px;
+      border: 1px solid #4d4d4d; }
+    .main-content .clients .search_block .btn-search {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 70px;
+      height: 35px;
+      cursor: pointer;
+      text-align: center;
+      border: 1px solid #393939;
+      font-weight: bold;
+      color: #4d4d4d;
+      background: linear-gradient(to top, #7CCE6C, #d9fcd3); }
+      .main-content .clients .search_block .btn-search:hover, .main-content .clients .search_block .btn-search:focus {
+        -webkit-box-shadow: inset 0 0 10px #4d4d4d;
+        -moz-box-shadow: inset 0 0 10px #4d4d4d;
+        box-shadow: inset 0 0 10px #4d4d4d;
+        background: linear-gradient(to top, #7FD0FF, #FFF); }
+    .main-content .clients .search_block #search_warning {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      display: none;
+      border: 2px solid #FE4D44;
+      color: #FE4D44;
+      padding: 10px;
+      background-color: #FFF;
+      font-weight: bold;
+      line-height: 18px;
+      z-index: 99; }
+      .main-content .clients .search_block #search_warning:before {
+        content: '';
+        width: 15px;
+        height: 15px;
+        background-color: #FFF;
+        border-left: 2px solid #FE4D44;
+        border-top: 2px solid #FE4D44;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+        position: absolute;
+        top: -9px;
+        left: calc(50% - 10px); }
+  .main-content .clients table#table_clients tbody tr td .check_mark,
+  .main-content .clients table#table_clients tbody tr td .check_warn {
+    float: left; }
+  .main-content .clients_screen .warning_block .warning_window_true,
+  .main-content .clients_screen .warning_block .warning_window_false {
+    position: fixed;
+    left: 60%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background-color: #7CCE6C;
+    padding: 10px 30px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    font-size: 16px;
+    -webkit-box-shadow: 2px 2px 5px #4d4d4d;
+    -moz-box-shadow: 2px 2px 5px #4d4d4d;
+    box-shadow: 2px 2px 5px #4d4d4d;
+    display: none;
+    z-index: 999; }
+  .main-content .clients_screen .warning_block .warning_window_false {
+    background-color: #FE4D44; }
+  .main-content .clients_screen .btn-back-list-clients {
+    margin-bottom: 25px;
+    padding: 5px 15px;
+    display: block; }
+    .main-content .clients_screen .btn-back-list-clients .icon-back-list-clients {
+      margin-right: 10px; }
+  .main-content .clients_screen .client_info_block {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 50px;
+    margin-bottom: 50px; }
+    .main-content .clients_screen .client_info_block .fio_client {
+      font-size: 28px;
+      font-weight: 600;
+      margin-top: 10px;
+      margin-bottom: 30px; }
+    .main-content .clients_screen .client_info_block .status_client label {
+      font-weight: 600;
+      font-size: 16px;
+      display: inline-block; }
+    .main-content .clients_screen .client_info_block .status_client .check_mark,
+    .main-content .clients_screen .client_info_block .status_client .check_warn {
+      position: relative;
+      top: 7px;
+      display: inline-block;
+      margin: 0 25px; }
+    .main-content .clients_screen .client_info_block .status_client select {
+      padding: 3px 10px;
+      cursor: pointer;
+      text-align: center;
+      border: 1px solid #4d4d4d;
+      font-weight: bold;
+      color: #393939;
+      background: linear-gradient(to top, #7CCE6C, #d9fcd3);
+      -webkit-box-shadow: 0 0 2px #4d4d4d;
+      -moz-box-shadow: 0 0 2px #4d4d4d;
+      box-shadow: 0 0 2px #4d4d4d; }
+    .main-content .clients_screen .client_info_block .last_visit {
+      margin: 25px 0;
+      font-size: 16px; }
+      .main-content .clients_screen .client_info_block .last_visit .last_visit_text,
+      .main-content .clients_screen .client_info_block .last_visit .last_visit_time {
+        margin-right: 20px;
+        font-weight: 600; }
+    .main-content .clients_screen .client_info_block .legal_entity_block {
+      margin: 20px 0;
+      font-weight: 600;
+      font-size: 18px; }
+      .main-content .clients_screen .client_info_block .legal_entity_block .checkbox {
+        vertical-align: top;
+        margin: 0 3px 0 0;
+        width: 17px;
+        height: 17px; }
+        .main-content .clients_screen .client_info_block .legal_entity_block .checkbox:not(checked) {
+          position: absolute;
+          opacity: 0; }
+          .main-content .clients_screen .client_info_block .legal_entity_block .checkbox:not(checked) + label.ios-switch {
+            position: relative;
+            top: 6px;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+            margin-right: 20px; }
+          .main-content .clients_screen .client_info_block .legal_entity_block .checkbox:not(checked) + label.ios-switch:before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            width: 50px;
+            height: 26px;
+            border-radius: 13px;
+            border: 1px solid #AAAEB5;
+            -webkit-box-shadow: inset 0 0 0 0 #C4C7D0;
+            -moz-box-shadow: inset 0 0 0 0 #C4C7D0;
+            box-shadow: inset 0 0 0 0 #C4C7D0;
+            -webkit-transition: border 0.3s, box-shadow 0.3s;
+            -moz-transition: border 0.3s, box-shadow 0.3s;
+            -ms-transition: border 0.3s, box-shadow 0.3s;
+            -o-transition: border 0.3s, box-shadow 0.3s;
+            transition: border 0.3s, box-shadow 0.3s;
+            background-color: #E4E4E4;
+            cursor: pointer; }
+          .main-content .clients_screen .client_info_block .legal_entity_block .checkbox:not(checked) + label.ios-switch:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 2px;
+            width: 22px;
+            height: 22px;
+            border-radius: 10px;
+            background: #FFF;
+            -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            -webkit-transition: all .2s;
+            -moz-transition: all .2s;
+            -ms-transition: all .2s;
+            -o-transition: all .2s;
+            transition: all .2s;
+            cursor: pointer; }
+        .main-content .clients_screen .client_info_block .legal_entity_block .checkbox:checked + label.ios-switch:before {
+          -webkit-box-shadow: inset 0 0 0 16px #7CCE6C;
+          -moz-box-shadow: inset 0 0 0 16px #7CCE6C;
+          box-shadow: inset 0 0 0 16px #7CCE6C;
+          -webkit-transition: border 0.3s, box-shadow 0.3s, background-color 0.3s;
+          -moz-transition: border 0.3s, box-shadow 0.3s, background-color 0.3s;
+          -ms-transition: border 0.3s, box-shadow 0.3s, background-color 0.3s;
+          -o-transition: border 0.3s, box-shadow 0.3s, background-color 0.3s;
+          transition: border 0.3s, box-shadow 0.3s, background-color 0.3s;
+          background-color: #7CCE6C;
+          border: 1px solid #7CCE6C; }
+        .main-content .clients_screen .client_info_block .legal_entity_block .checkbox:checked + label.ios-switch:after {
+          left: 26px; }
+    .main-content .clients_screen .client_info_block .form_row {
+      margin: 10px 0; }
+      .main-content .clients_screen .client_info_block .form_row__name {
+        display: inline-block;
+        width: 250px;
+        font-weight: 600;
+        line-height: 18px;
+        vertical-align: middle; }
+      .main-content .clients_screen .client_info_block .form_row__input {
+        display: inline-block;
+        width: 350px;
+        height: 35px;
+        padding: 5px;
+        border: 1px solid #D7D7D7; }
+    .main-content .clients_screen .client_info_block .buttons_block {
+      margin: 30px 0; }
+      .main-content .clients_screen .client_info_block .buttons_block .btn-delete-form {
+        margin-left: 50px; }
+      .main-content .clients_screen .client_info_block .buttons_block .btn-save-form {
+        margin-left: 10px; }
+  .main-content .clients_screen .client_discount_block {
+    display: inline-block;
+    vertical-align: top;
+    min-width: 800px; }
+    .main-content .clients_screen .client_discount_block .btn-custom, .main-content .clients_screen .client_discount_block .btnBack, .main-content .clients_screen .client_discount_block .modal_window_bg .modal_window .buttons_modal_block .btn-modal-confirm, .modal_window_bg .modal_window .buttons_modal_block .main-content .clients_screen .client_discount_block .btn-modal-confirm, .main-content .clients_screen .client_discount_block .modal_window_bg .modal_window .buttons_modal_block .btn-modal-cancel, .modal_window_bg .modal_window .buttons_modal_block .main-content .clients_screen .client_discount_block .btn-modal-cancel {
+      padding: 5px 10px;
+      float: right; }
+    .main-content .clients_screen .client_discount_block table#table_client_discount th:first-child,
+    .main-content .clients_screen .client_discount_block table#table_client_discount td:first-child {
+      padding: 5px;
+      width: 50px;
+      text-align: center; }
+    .main-content .clients_screen .client_discount_block table#table_client_discount tbody tr td .td_overflow {
+      max-height: 50px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical; }
+    .main-content .clients_screen .client_discount_block table#table_client_discount tbody tr td:last-child {
+      position: relative; }
+      .main-content .clients_screen .client_discount_block table#table_client_discount tbody tr td:last-child .icon_edit_discount {
+        position: absolute;
+        top: 50%;
+        right: -35px;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%); }
+        .main-content .clients_screen .client_discount_block table#table_client_discount tbody tr td:last-child .icon_edit_discount:hover {
+          color: #7CCE6C;
+          cursor: pointer; }
+    .main-content .clients_screen .client_discount_block table#table_client_discount tbody tr:hover td {
+      cursor: default; }
+  .main-content .orders .orders_nav {
+    text-align: center; }
+    .main-content .orders .orders_nav .search_block {
+      position: relative;
+      display: block;
+      width: 269px;
+      height: 35px;
+      float: left;
+      margin-bottom: 15px; }
+      .main-content .orders .orders_nav .search_block input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 35px;
+        padding: 5px 10px;
+        border: 1px solid #4d4d4d; }
+      .main-content .orders .orders_nav .search_block .btn-search {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 70px;
+        height: 35px;
+        cursor: pointer;
+        text-align: center;
+        border: 1px solid #393939;
+        font-weight: bold;
+        color: #4d4d4d;
+        background: linear-gradient(to top, #7CCE6C, #d9fcd3); }
+        .main-content .orders .orders_nav .search_block .btn-search:hover, .main-content .orders .orders_nav .search_block .btn-search:focus {
+          -webkit-box-shadow: inset 0 0 10px #4d4d4d;
+          -moz-box-shadow: inset 0 0 10px #4d4d4d;
+          box-shadow: inset 0 0 10px #4d4d4d;
+          background: linear-gradient(to top, #7FD0FF, #FFF); }
+    .main-content .orders .orders_nav .btn_nav {
+      display: inline-block;
+      margin-bottom: 15px; }
+      .main-content .orders .orders_nav .btn_nav .btn-custom, .main-content .orders .orders_nav .btn_nav .btnBack, .main-content .orders .orders_nav .btn_nav .modal_window_bg .modal_window .buttons_modal_block .btn-modal-confirm, .modal_window_bg .modal_window .buttons_modal_block .main-content .orders .orders_nav .btn_nav .btn-modal-confirm, .main-content .orders .orders_nav .btn_nav .modal_window_bg .modal_window .buttons_modal_block .btn-modal-cancel, .modal_window_bg .modal_window .buttons_modal_block .main-content .orders .orders_nav .btn_nav .btn-modal-cancel {
+        padding: 5px 10px;
+        margin-left: -3px;
+        margin-right: -3px;
+        font-size: 14px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none; }
+        .main-content .orders .orders_nav .btn_nav .btn-custom:hover, .main-content .orders .orders_nav .btn_nav .btnBack:hover, .main-content .orders .orders_nav .btn_nav .modal_window_bg .modal_window .buttons_modal_block .btn-modal-confirm:hover, .modal_window_bg .modal_window .buttons_modal_block .main-content .orders .orders_nav .btn_nav .btn-modal-confirm:hover, .main-content .orders .orders_nav .btn_nav .modal_window_bg .modal_window .buttons_modal_block .btn-modal-cancel:hover, .modal_window_bg .modal_window .buttons_modal_block .main-content .orders .orders_nav .btn_nav .btn-modal-cancel:hover, .main-content .orders .orders_nav .btn_nav .btn-custom:focus, .main-content .orders .orders_nav .btn_nav .btnBack:focus, .main-content .orders .orders_nav .btn_nav .modal_window_bg .modal_window .buttons_modal_block .btn-modal-confirm:focus, .modal_window_bg .modal_window .buttons_modal_block .main-content .orders .orders_nav .btn_nav .btn-modal-confirm:focus, .main-content .orders .orders_nav .btn_nav .modal_window_bg .modal_window .buttons_modal_block .btn-modal-cancel:focus, .modal_window_bg .modal_window .buttons_modal_block .main-content .orders .orders_nav .btn_nav .btn-modal-cancel:focus {
+          -webkit-box-shadow: inset 0 0 10px #4d4d4d;
+          -moz-box-shadow: inset 0 0 10px #4d4d4d;
+          box-shadow: inset 0 0 10px #4d4d4d;
+          background: linear-gradient(to top, #7FD0FF, #FFF); }
+    .main-content .orders .orders_nav .date_nav {
+      display: inline-block;
+      float: right;
+      margin-bottom: 15px;
+      border: 1px solid #393939; }
+      .main-content .orders .orders_nav .date_nav .first_date {
+        display: inline-block;
+        width: 110px;
+        height: 35px;
+        background: linear-gradient(to top, #7CCE6C, #d9fcd3);
+        color: #393939;
+        font-weight: bold;
+        padding: 5px;
+        margin-right: -5px;
+        border: none;
+        text-align: center; }
+      .main-content .orders .orders_nav .date_nav .last_date {
+        display: inline-block;
+        width: 110px;
+        height: 35px;
+        background-color: #FFF;
+        color: #393939;
+        font-weight: bold;
+        padding: 5px;
+        border: none;
+        text-align: center; }
+  .main-content .orders table#table_orders th:first-child,
+  .main-content .orders table#table_orders td:first-child {
+    padding: 5px;
+    width: 50px;
+    text-align: center; }
+  .main-content .orders table#table_orders th.sort_date {
+    width: 100px; }
+  .main-content .orders table#table_orders th.sort_status {
+    width: 140px; }
+  .main-content .orders .orders_number {
+    float: right;
+    margin: 25px 0;
+    padding: 5px 20px;
+    border: 1px solid #000;
+    font-weight: bold;
+    color: #393939;
+    background: linear-gradient(to top, #7CCE6C, #d9fcd3);
+    cursor: pointer; }
+    .main-content .orders .orders_number .icon-orders-number {
+      position: relative;
+      top: 1px;
+      margin-left: 5px; }
+  .main-content .orders_screen .warning_block .warning_window_true,
+  .main-content .orders_screen .warning_block .warning_window_false {
+    position: fixed;
+    left: 60%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background-color: #7CCE6C;
+    padding: 10px 30px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    font-size: 16px;
+    -webkit-box-shadow: 2px 2px 5px #4d4d4d;
+    -moz-box-shadow: 2px 2px 5px #4d4d4d;
+    box-shadow: 2px 2px 5px #4d4d4d;
+    display: none;
+    z-index: 999; }
+  .main-content .orders_screen .warning_block .warning_window_false {
+    background-color: #FE4D44; }
+  .main-content .orders_screen #btn-back-list-orders {
+    margin-bottom: 25px;
+    padding: 5px 15px;
+    display: block; }
+    .main-content .orders_screen #btn-back-list-orders .icon-back-list-orders {
+      margin-right: 10px; }
+  .main-content .orders_screen .order_num {
+    font-weight: 600;
+    font-size: 22px;
+    margin: 20px 0; }
+    .main-content .orders_screen .order_num #order_num {
+      display: inline-block;
+      margin: 0 5px;
+      color: #61A054; }
+    .main-content .orders_screen .order_num #order_date {
+      display: inline-block;
+      margin: 0 5px; }
+  .main-content .orders_screen .table_cargo_from {
+    margin-bottom: 30px; }
+    .main-content .orders_screen .table_cargo_from .cargo_from,
+    .main-content .orders_screen .table_cargo_from .cargo_to {
+      display: inline-block;
+      width: 320px;
+      padding: 20px 0;
+      font-size: 20px;
+      font-weight: bold;
+      color: #61A054;
+      line-height: 22px; }
+  .main-content .orders_screen .arrow_from {
+    display: inline-block;
+    width: 200px;
+    margin: 0 40px; }
+  .main-content .orders_screen .delivery_date,
+  .main-content .orders_screen .desired_date {
+    font-weight: 600; }
+    .main-content .orders_screen .delivery_date #delivery_date,
+    .main-content .orders_screen .delivery_date #desired_date,
+    .main-content .orders_screen .desired_date #delivery_date,
+    .main-content .orders_screen .desired_date #desired_date {
+      display: inline-block;
+      margin-left: 10px; }
+  .main-content .orders_screen .sender,
+  .main-content .orders_screen .recepient {
+    display: inline-block;
+    width: 450px;
+    background-color: #FFF;
+    border: 1px solid #D7D7D7;
+    padding: 10px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    vertical-align: top; }
+    .main-content .orders_screen .sender .name,
+    .main-content .orders_screen .recepient .name {
+      display: inline-block;
+      text-transform: uppercase;
+      font-style: italic;
+      font-size: 14px;
+      font-weight: 600;
+      margin-right: 10px; }
+  .main-content .orders_screen .info_cargo_block {
+    width: 910px;
+    display: block;
+    background-color: #FFF;
+    border: 1px solid #D7D7D7;
+    padding: 10px; }
+    .main-content .orders_screen .info_cargo_block div {
+      margin: 10px 5px;
+      display: inline-block; }
+      .main-content .orders_screen .info_cargo_block div #cargo_name {
+        width: 288px; }
+      .main-content .orders_screen .info_cargo_block div #order_temperature {
+        width: 288px;
+        background-color: #FFF; }
+      .main-content .orders_screen .info_cargo_block div #order_danger {
+        width: 270px;
+        background-color: #FFF; }
+      .main-content .orders_screen .info_cargo_block div #cargo_price {
+        width: 200px; }
+      .main-content .orders_screen .info_cargo_block div #cargo_method {
+        min-width: 170px; }
+      .main-content .orders_screen .info_cargo_block div #cargo_value {
+        width: 120px; }
+      .main-content .orders_screen .info_cargo_block div #payment_type {
+        width: 288px;
+        background-color: #FFF; }
+      .main-content .orders_screen .info_cargo_block div #payer_type {
+        width: 170px; }
+      .main-content .orders_screen .info_cargo_block div .body_info_cargo_elem {
+        width: 100px; }
+      .main-content .orders_screen .info_cargo_block div .head_info_cargo {
+        display: block;
+        font-weight: 600;
+        font-size: 14px;
+        font-style: italic;
+        text-transform: uppercase; }
+      .main-content .orders_screen .info_cargo_block div .body_info_cargo {
+        display: inline-block;
+        height: 35px;
+        float: left;
+        background-color: #F0F0F0;
+        padding: 3px 10px;
+        border: 1px solid #D7D7D7; }
+  .main-content .orders_screen .order_num_carrier {
+    font-weight: 600;
+    font-size: 18px;
+    margin: 20px 0; }
+    .main-content .orders_screen .order_num_carrier #order_num_carrier {
+      display: inline-block;
+      margin: 0 5px; }
+  .main-content .orders_screen .carrier {
+    font-weight: 600;
+    font-size: 18px;
+    margin: 20px 0; }
+    .main-content .orders_screen .carrier #carrier {
+      display: inline-block;
+      margin: 0 5px; }
+  .main-content .orders_screen .costPayment {
+    display: inline-block;
+    width: 450px;
+    background-color: #FFF;
+    border: 1px solid #D7D7D7;
+    padding: 10px;
+    margin-right: 5px;
+    margin-top: 10px;
+    vertical-align: top;
+    text-align: center; }
+    .main-content .orders_screen .costPayment .paymentBlock {
+      display: inline-block;
+      width: 180px;
+      margin: 7px;
+      text-align: center; }
+      .main-content .orders_screen .costPayment .paymentBlock__name {
+        display: block;
+        font-weight: 600; }
+      .main-content .orders_screen .costPayment .paymentBlock__input {
+        background-color: #F0F0F0;
+        padding: 3px 5px;
+        border: 1px solid #D7D7D7;
+        width: 90px;
+        text-align: center; }
+  .main-content .orders_screen .statusBlock {
+    display: inline-block;
+    background-color: #FFF;
+    border: 1px solid #D7D7D7;
+    padding: 10px;
+    margin-top: 10px;
+    vertical-align: top; }
+    .main-content .orders_screen .statusBlock .status {
+      margin-bottom: 10px; }
+      .main-content .orders_screen .statusBlock .status__name {
+        display: inline-block;
+        width: 190px;
+        font-weight: 600; }
+        .main-content .orders_screen .statusBlock .status__name .name_desc {
+          display: inline-block;
+          width: 130px; }
+      .main-content .orders_screen .statusBlock .status__icon {
+        display: inline-block;
+        position: relative;
+        top: 8px;
+        width: 25px;
+        height: 25px;
+        margin-left: 5px; }
+      .main-content .orders_screen .statusBlock .status #status_order,
+      .main-content .orders_screen .statusBlock .status #status_payment {
+        width: 235px; }
+  .main-content .orders_screen .buttons_block {
+    margin-top: 30px; }
+    .main-content .orders_screen .buttons_block .btn-custom, .main-content .orders_screen .buttons_block .btnBack, .main-content .orders_screen .buttons_block .modal_window_bg .modal_window .buttons_modal_block .btn-modal-confirm, .modal_window_bg .modal_window .buttons_modal_block .main-content .orders_screen .buttons_block .btn-modal-confirm, .main-content .orders_screen .buttons_block .modal_window_bg .modal_window .buttons_modal_block .btn-modal-cancel, .modal_window_bg .modal_window .buttons_modal_block .main-content .orders_screen .buttons_block .btn-modal-cancel {
+      margin-right: 50px; }
+  .main-content .documents .navDocument {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px; }
+    .main-content .documents .navDocument .btn-custom-create_doc {
+      margin-left: 50px; }
+  .main-content .documents .newDocument__name {
+    font-family: 'Stolzl', sans-serif; }
+  .main-content .documents .newDocument__icon {
+    float: right;
+    margin-top: 5px;
+    margin-right: 10px; }
+  .main-content .documents #js-documents_lists {
+    width: 800px; }
+    .main-content .documents #js-documents_lists thead th {
+      text-align: center; }
+  .main-content .document .blockSelection {
+    display: inline-block;
+    width: 400px;
+    float: left;
+    margin-right: 50px; }
+    .main-content .document .blockSelection__list {
+      min-height: 35px;
+      margin-top: 5px;
+      margin-bottom: 40px;
+      border: 1px solid #D7D7D7;
+      background-color: #FFF; }
+      .main-content .document .blockSelection__list ul {
+        list-style: none;
+        margin: 0;
+        padding: 0; }
+        .main-content .document .blockSelection__list ul li {
+          width: 100%;
+          border-bottom: 1px solid #D7D7D7;
+          padding: 5px 10px;
+          font-weight: 600;
+          cursor: pointer; }
+          .main-content .document .blockSelection__list ul li .list__icon {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            line-height: 20px;
+            float: right;
+            text-align: center;
+            border: 2px solid #2BA2E7;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            color: #2BA2E7; }
+          .main-content .document .blockSelection__list ul li:hover {
+            background-color: #d9fcd3; }
+  .main-content .document .blockDocument {
+    display: inline-block;
+    width: 610px; }
+    .main-content .document .blockDocument__name {
+      width: 100%;
+      height: 35px;
+      padding: 5px;
+      margin-bottom: 30px;
+      border: 1px solid #D7D7D7;
+      background-color: #FFF; }
+    .main-content .document .blockDocument__btn {
+      margin-top: 50px; }
+      .main-content .document .blockDocument__btn .btn__save {
+        margin-right: 20px; }
+  .main-content .document_info .document_form {
+    width: 1000px;
+    border: 1px solid #D7D7D7;
+    background-color: #FFF;
+    padding: 15px; }
+    .main-content .document_info .document_form h3 {
+      margin-bottom: 20px; }
+  .main-content .document_info .order_str {
+    font-weight: bold;
+    font-style: italic;
+    margin: 10px 0; }
+    .main-content .document_info .order_str::after {
+      content: '>>';
+      display: inline-block;
+      margin-left: 10px; }
+  .main-content .document_info .order_block {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-bottom: 1px solid #d7d7d7;
+    padding-bottom: 10px; }
+    .main-content .document_info .order_block h6 {
+      max-width: 270px;
+      margin-right: 15px;
+      margin-bottom: 0; }
+  .main-content .document_info .shipping_section {
+    display: flex;
+    justify-content: space-between; }
+    .main-content .document_info .shipping_section-top {
+      margin-top: 20px; }
+    .main-content .document_info .shipping_section-bottom {
+      margin-bottom: 20px; }
+  .main-content .document_info .shipping_block {
+    width: 470px;
+    border: 1px solid #D7D7D7;
+    padding: 10px;
+    margin: 5px;
+    vertical-align: top;
+    flex-grow: 1; }
+    .main-content .document_info .shipping_block div {
+      line-height: 20px; }
+    .main-content .document_info .shipping_block .name {
+      display: inline-block;
+      text-transform: uppercase;
+      font: italic 600 12px "Stolzl", sans-serif;
+      margin-right: 10px; }
+  .main-content .document_info h5 {
+    margin-left: 5px;
+    margin-top: 30px; }
+  .main-content .document_info .table_cargo {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 10px; }
+    .main-content .document_info .table_cargo thead tr th {
+      font-family: "Stolzl", sans-serif;
+      font-weight: bold; }
+    .main-content .document_info .table_cargo thead tr th,
+    .main-content .document_info .table_cargo tbody tr td {
+      height: 30px;
+      padding: 5px;
+      vertical-align: middle;
+      border: 1px solid #D7D7D7; }
+  .main-content .document_info .additional_services {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 10px; }
+    .main-content .document_info .additional_services tbody tr td {
+      padding: 10px;
+      vertical-align: top;
+      border: 1px solid #D7D7D7; }
+    .main-content .document_info .additional_services .services_name::before {
+      content: '\f14a';
+      font-family: "Font Awesome 5 Free";
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 10px; }
+  .main-content .document_info .total_price {
+    margin: 30px 0; }
+  .main-content .document_info .conditions {
+    font: 600 10px "Stolzl", sans-serif;
+    margin-bottom: 10px; }
+  .main-content .document_info .conditions_list {
+    list-style-position: inside;
+    margin-left: 20px;
+    font-size: 10px;
+    line-height: 16px; }
+  .main-content .document_info .signature_block {
+    display: inline-block;
+    width: 400px;
+    margin: 20px 10px; }
+    .main-content .document_info .signature_block .signature_line {
+      height: 30px;
+      border-bottom: 1px solid #4d4d4d; }
+  .main-content .discounts .discounts_nav .btn-custom, .main-content .discounts .discounts_nav .btnBack, .main-content .discounts .discounts_nav .modal_window_bg .modal_window .buttons_modal_block .btn-modal-confirm, .modal_window_bg .modal_window .buttons_modal_block .main-content .discounts .discounts_nav .btn-modal-confirm, .main-content .discounts .discounts_nav .modal_window_bg .modal_window .buttons_modal_block .btn-modal-cancel, .modal_window_bg .modal_window .buttons_modal_block .main-content .discounts .discounts_nav .btn-modal-cancel {
+    margin-right: 20px; }
+  .main-content .discounts .discounts_nav .search_block {
+    position: relative;
+    display: block;
+    width: 269px;
+    height: 35px;
+    float: right;
+    margin-bottom: 15px; }
+    .main-content .discounts .discounts_nav .search_block input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 35px;
+      padding: 5px 10px;
+      border: 1px solid #4d4d4d; }
+    .main-content .discounts .discounts_nav .search_block .btn-search {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 70px;
+      height: 35px;
+      cursor: pointer;
+      text-align: center;
+      border: 1px solid #393939;
+      font-weight: bold;
+      color: #4d4d4d;
+      background: linear-gradient(to top, #7CCE6C, #d9fcd3); }
+      .main-content .discounts .discounts_nav .search_block .btn-search:hover, .main-content .discounts .discounts_nav .search_block .btn-search:focus {
+        -webkit-box-shadow: inset 0 0 10px #4d4d4d;
+        -moz-box-shadow: inset 0 0 10px #4d4d4d;
+        box-shadow: inset 0 0 10px #4d4d4d;
+        background: linear-gradient(to top, #7FD0FF, #FFF); }
+    .main-content .discounts .discounts_nav .search_block #search_warning {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      display: none;
+      border: 2px solid #FE4D44;
+      color: #FE4D44;
+      padding: 10px;
+      background-color: #FFF;
+      font-weight: bold;
+      line-height: 18px;
+      z-index: 99; }
+      .main-content .discounts .discounts_nav .search_block #search_warning:before {
+        content: '';
+        width: 15px;
+        height: 15px;
+        background-color: #FFF;
+        border-left: 2px solid #FE4D44;
+        border-top: 2px solid #FE4D44;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+        position: absolute;
+        top: -9px;
+        left: calc(50% - 10px); }
+  .main-content .discounts table#table_discounts th:first-child,
+  .main-content .discounts table#table_discounts td:first-child {
+    padding: 5px;
+    width: 50px;
+    text-align: center; }
+  .main-content .discounts table#table_discounts th:last-child,
+  .main-content .discounts table#table_discounts td:last-child {
+    width: 300px; }
+    .main-content .discounts table#table_discounts th:last-child .countries_block,
+    .main-content .discounts table#table_discounts td:last-child .countries_block {
+      max-height: 50px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical; }
+  .main-content .discount .warning_block .warning_window_true,
+  .main-content .discount .warning_block .warning_window_false {
+    position: fixed;
+    left: 60%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background-color: #7CCE6C;
+    padding: 10px 30px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    font-size: 16px;
+    -webkit-box-shadow: 2px 2px 5px #4d4d4d;
+    -moz-box-shadow: 2px 2px 5px #4d4d4d;
+    box-shadow: 2px 2px 5px #4d4d4d;
+    display: none;
+    z-index: 999; }
+  .main-content .discount .warning_block .warning_window_false {
+    background-color: #FE4D44; }
+  .main-content .discount #btn_back_discounts {
+    margin-bottom: 25px;
+    padding: 5px 15px; }
+    .main-content .discount #btn_back_discounts .icon_back_discounts {
+      margin-right: 10px; }
+  .main-content .discount #user_name {
+    display: none;
+    margin-top: 10px;
+    margin-bottom: 30px; }
+  .main-content .discount #active_discount {
+    margin: 15px 0 35px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 32px; }
+    .main-content .discount #active_discount .check_mark,
+    .main-content .discount #active_discount .check_warn {
+      float: left;
+      width: 30px;
+      height: 30px;
+      margin-right: 20px; }
+  .main-content .discount .category_block {
+    margin: 10px 0; }
+    .main-content .discount .category_block span:first-child {
+      display: inline-block;
+      width: 180px;
+      font-weight: 600;
+      line-height: 35px;
+      vertical-align: top; }
+    .main-content .discount .category_block select {
+      width: 200px; }
+    .main-content .discount .category_block .promo_code_check {
+      position: relative;
+      top: -2px;
+      margin-right: 10px; }
+    .main-content .discount .category_block input {
+      width: 350px;
+      height: 35px;
+      padding: 5px 12px;
+      border: 1px solid #D7D7D7;
+      background-color: #FFF; }
+    .main-content .discount .category_block ol#location_discount,
+    .main-content .discount .category_block ol#transport_discount {
+      list-style-position: inside;
+      width: 350px;
+      height: 150px;
+      padding: 5px 12px;
+      margin: 0;
+      border: 1px solid #D7D7D7;
+      background-color: #FFF;
+      display: inline-block;
+      overflow-y: auto; }
+    .main-content .discount .category_block #size_discount {
+      width: 75px; }
+    .main-content .discount .category_block #btn_add_location_discount,
+    .main-content .discount .category_block #btn_add_transport_discount {
+      cursor: pointer;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-top: 10px;
+      margin-left: 10px;
+      vertical-align: top; }
+      .main-content .discount .category_block #btn_add_location_discount:hover,
+      .main-content .discount .category_block #btn_add_transport_discount:hover {
+        color: #7CCE6C; }
+    .main-content .discount .category_block .datepicker {
+      width: 100px;
+      text-align: center;
+      padding: 0; }
+    .main-content .discount .category_block .check_end_date_discount {
+      position: relative;
+      top: -2px;
+      margin-left: 15px;
+      margin-right: 5px; }
+    .main-content .discount .category_block .end_date_discount_text {
+      font-weight: 600; }
+  .main-content .discount .buttons_block {
+    margin-top: 50px; }
+    .main-content .discount .buttons_block #btn_archive_discount {
+      margin-left: 10px; }
+    .main-content .discount .buttons_block #btn_activate_discount {
+      margin-left: 70px; }
+    .main-content .discount .buttons_block #btn_delete_discount {
+      margin-left: 20px;
+      display: none; }
+  .main-content .discount .modal_window_bg .modal_window_discount {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    width: 1180px;
+    height: auto;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    color: #393939;
+    background-color: #F0F0F0;
+    border: 2px solid #1a1a1a;
+    padding: 20px;
+    -webkit-box-shadow: 0 0 10px #d9fcd3;
+    -moz-box-shadow: 0 0 10px #d9fcd3;
+    box-shadow: 0 0 10px #d9fcd3; }
+    .main-content .discount .modal_window_bg .modal_window_discount h4 {
+      text-align: center;
+      margin-bottom: 30px; }
+    .main-content .discount .modal_window_bg .modal_window_discount .search_block_nav {
+      min-height: 35px;
+      margin: 17px; }
+      .main-content .discount .modal_window_bg .modal_window_discount .search_block_nav .search_block_false {
+        float: left; }
+      .main-content .discount .modal_window_bg .modal_window_discount .search_block_nav .search_block_true {
+        float: right; }
+      .main-content .discount .modal_window_bg .modal_window_discount .search_block_nav .search_block {
+        position: relative;
+        display: block;
+        width: 369px;
+        height: 35px; }
+        .main-content .discount .modal_window_bg .modal_window_discount .search_block_nav .search_block input {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 300px;
+          height: 35px;
+          padding: 5px 10px;
+          border: 1px solid #4d4d4d; }
+        .main-content .discount .modal_window_bg .modal_window_discount .search_block_nav .search_block .btn-search {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 70px;
+          height: 35px;
+          cursor: pointer;
+          text-align: center;
+          border: 1px solid #393939;
+          font-weight: bold;
+          color: #4d4d4d;
+          background: linear-gradient(to top, #7CCE6C, #d9fcd3); }
+          .main-content .discount .modal_window_bg .modal_window_discount .search_block_nav .search_block .btn-search:hover, .main-content .discount .modal_window_bg .modal_window_discount .search_block_nav .search_block .btn-search:focus {
+            -webkit-box-shadow: inset 0 0 10px #4d4d4d;
+            -moz-box-shadow: inset 0 0 10px #4d4d4d;
+            box-shadow: inset 0 0 10px #4d4d4d;
+            background: linear-gradient(to top, #7FD0FF, #FFF); }
+    .main-content .discount .modal_window_bg .modal_window_discount .location_list,
+    .main-content .discount .modal_window_bg .modal_window_discount .company_list {
+      clear: both;
+      text-align: center; }
+      .main-content .discount .modal_window_bg .modal_window_discount .location_list .location_list_true,
+      .main-content .discount .modal_window_bg .modal_window_discount .location_list .location_list_false,
+      .main-content .discount .modal_window_bg .modal_window_discount .location_list .company_list_true,
+      .main-content .discount .modal_window_bg .modal_window_discount .location_list .company_list_false,
+      .main-content .discount .modal_window_bg .modal_window_discount .company_list .location_list_true,
+      .main-content .discount .modal_window_bg .modal_window_discount .company_list .location_list_false,
+      .main-content .discount .modal_window_bg .modal_window_discount .company_list .company_list_true,
+      .main-content .discount .modal_window_bg .modal_window_discount .company_list .company_list_false {
+        display: inline-block;
+        width: 540px;
+        margin: 10px; }
+        .main-content .discount .modal_window_bg .modal_window_discount .location_list .location_list_true h5,
+        .main-content .discount .modal_window_bg .modal_window_discount .location_list .location_list_false h5,
+        .main-content .discount .modal_window_bg .modal_window_discount .location_list .company_list_true h5,
+        .main-content .discount .modal_window_bg .modal_window_discount .location_list .company_list_false h5,
+        .main-content .discount .modal_window_bg .modal_window_discount .company_list .location_list_true h5,
+        .main-content .discount .modal_window_bg .modal_window_discount .company_list .location_list_false h5,
+        .main-content .discount .modal_window_bg .modal_window_discount .company_list .company_list_true h5,
+        .main-content .discount .modal_window_bg .modal_window_discount .company_list .company_list_false h5 {
+          position: relative;
+          text-align: center;
+          background: linear-gradient(to top, #D7D7D7, #FFF);
+          border: 1px solid #D7D7D7;
+          padding: 10px;
+          margin: 0; }
+          .main-content .discount .modal_window_bg .modal_window_discount .location_list .location_list_true h5 .btn-custom, .main-content .discount .modal_window_bg .modal_window_discount .location_list .location_list_true h5 .btnBack, .main-content .discount .modal_window_bg .modal_window_discount .location_list .location_list_true h5 .modal_window .buttons_modal_block .btn-modal-confirm, .main-content .discount .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .location_list_true h5 .btn-modal-confirm, .main-content .discount .modal_window_bg .modal_window_discount .location_list .location_list_true h5 .modal_window .buttons_modal_block .btn-modal-cancel, .main-content .discount .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .location_list_true h5 .btn-modal-cancel,
+          .main-content .discount .modal_window_bg .modal_window_discount .location_list .location_list_false h5 .btn-custom,
+          .main-content .discount .modal_window_bg .modal_window_discount .location_list .location_list_false h5 .btnBack,
+          .main-content .discount .modal_window_bg .modal_window_discount .location_list .location_list_false h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .location_list_false h5 .btn-modal-confirm,
+          .main-content .discount .modal_window_bg .modal_window_discount .location_list .location_list_false h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .location_list_false h5 .btn-modal-cancel,
+          .main-content .discount .modal_window_bg .modal_window_discount .location_list .company_list_true h5 .btn-custom,
+          .main-content .discount .modal_window_bg .modal_window_discount .location_list .company_list_true h5 .btnBack,
+          .main-content .discount .modal_window_bg .modal_window_discount .location_list .company_list_true h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .company_list_true h5 .btn-modal-confirm,
+          .main-content .discount .modal_window_bg .modal_window_discount .location_list .company_list_true h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .company_list_true h5 .btn-modal-cancel,
+          .main-content .discount .modal_window_bg .modal_window_discount .location_list .company_list_false h5 .btn-custom,
+          .main-content .discount .modal_window_bg .modal_window_discount .location_list .company_list_false h5 .btnBack,
+          .main-content .discount .modal_window_bg .modal_window_discount .location_list .company_list_false h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .company_list_false h5 .btn-modal-confirm,
+          .main-content .discount .modal_window_bg .modal_window_discount .location_list .company_list_false h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .company_list_false h5 .btn-modal-cancel,
+          .main-content .discount .modal_window_bg .modal_window_discount .company_list .location_list_true h5 .btn-custom,
+          .main-content .discount .modal_window_bg .modal_window_discount .company_list .location_list_true h5 .btnBack,
+          .main-content .discount .modal_window_bg .modal_window_discount .company_list .location_list_true h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .location_list_true h5 .btn-modal-confirm,
+          .main-content .discount .modal_window_bg .modal_window_discount .company_list .location_list_true h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .location_list_true h5 .btn-modal-cancel,
+          .main-content .discount .modal_window_bg .modal_window_discount .company_list .location_list_false h5 .btn-custom,
+          .main-content .discount .modal_window_bg .modal_window_discount .company_list .location_list_false h5 .btnBack,
+          .main-content .discount .modal_window_bg .modal_window_discount .company_list .location_list_false h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .location_list_false h5 .btn-modal-confirm,
+          .main-content .discount .modal_window_bg .modal_window_discount .company_list .location_list_false h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .location_list_false h5 .btn-modal-cancel,
+          .main-content .discount .modal_window_bg .modal_window_discount .company_list .company_list_true h5 .btn-custom,
+          .main-content .discount .modal_window_bg .modal_window_discount .company_list .company_list_true h5 .btnBack,
+          .main-content .discount .modal_window_bg .modal_window_discount .company_list .company_list_true h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .company_list_true h5 .btn-modal-confirm,
+          .main-content .discount .modal_window_bg .modal_window_discount .company_list .company_list_true h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .company_list_true h5 .btn-modal-cancel,
+          .main-content .discount .modal_window_bg .modal_window_discount .company_list .company_list_false h5 .btn-custom,
+          .main-content .discount .modal_window_bg .modal_window_discount .company_list .company_list_false h5 .btnBack,
+          .main-content .discount .modal_window_bg .modal_window_discount .company_list .company_list_false h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .company_list_false h5 .btn-modal-confirm,
+          .main-content .discount .modal_window_bg .modal_window_discount .company_list .company_list_false h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .company_list_false h5 .btn-modal-cancel {
+            position: absolute;
+            top: 10px;
+            right: 5px;
+            font-size: 14px;
+            width: 125px;
+            padding: 5px;
+            -webkit-box-shadow: 0 0 2px #4d4d4d;
+            -moz-box-shadow: 0 0 2px #4d4d4d;
+            box-shadow: 0 0 2px #4d4d4d; }
+    .main-content .discount .modal_window_bg .modal_window_discount .buttons_modal_block {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 15px; }
+      .main-content .discount .modal_window_bg .modal_window_discount .buttons_modal_block .btn-modal-confirm {
+        margin: 0 10px; }
+      .main-content .discount .modal_window_bg .modal_window_discount .buttons_modal_block .btn-modal-cancel {
+        background: linear-gradient(to top, #FE4D44, #FED8D6); }
+        .main-content .discount .modal_window_bg .modal_window_discount .buttons_modal_block .btn-modal-cancel:hover, .main-content .discount .modal_window_bg .modal_window_discount .buttons_modal_block .btn-modal-cancel:focus {
+          -webkit-box-shadow: inset 0 0 10px #4d4d4d;
+          -moz-box-shadow: inset 0 0 10px #4d4d4d;
+          box-shadow: inset 0 0 10px #4d4d4d;
+          background: linear-gradient(to top, #7FD0FF, #FFF); }
+  .main-content .discount_statistics #btn_back_discounts_statistics {
+    display: block;
+    margin-bottom: 25px;
+    padding: 5px 15px; }
+    .main-content .discount_statistics #btn_back_discounts_statistics .icon_back_discounts_statistics {
+      margin-right: 10px; }
+  .main-content .discount_statistics .discounts_info {
+    display: inline-block;
+    margin-bottom: 30px;
+    margin-right: 80px;
+    vertical-align: top; }
+    .main-content .discount_statistics .discounts_info #reset_filter {
+      padding: 5px 15px; }
+    .main-content .discount_statistics .discounts_info .discount_settings {
+      margin: 20px 0; }
+      .main-content .discount_statistics .discounts_info .discount_settings h4 {
+        display: inline-block;
+        font-weight: 600;
+        margin-right: 34px; }
+      .main-content .discount_statistics .discounts_info .discount_settings #btn_reset_filter,
+      .main-content .discount_statistics .discounts_info .discount_settings #btn_use_filter {
+        padding: 5px 10px; }
+    .main-content .discount_statistics .discounts_info .discount_block {
+      margin: 10px 0; }
+      .main-content .discount_statistics .discounts_info .discount_block > span {
+        display: inline-block;
+        width: 180px;
+        font-weight: 600;
+        line-height: 35px;
+        vertical-align: top; }
+      .main-content .discount_statistics .discounts_info .discount_block #discount_name,
+      .main-content .discount_statistics .discounts_info .discount_block #discount_promo_code,
+      .main-content .discount_statistics .discounts_info .discount_block ol#discount_location,
+      .main-content .discount_statistics .discounts_info .discount_block ol#discount_company {
+        list-style-position: inside;
+        width: 350px;
+        height: 130px;
+        padding: 5px 12px;
+        margin: 0;
+        border: 1px solid #D7D7D7;
+        background-color: #FFF;
+        display: inline-block;
+        overflow-y: auto; }
+      .main-content .discount_statistics .discounts_info .discount_block .period_date {
+        float: right;
+        margin-right: 5px; }
+      .main-content .discount_statistics .discounts_info .discount_block .datepicker {
+        width: 100px;
+        height: 35px;
+        padding: 0;
+        text-align: center;
+        border: 1px solid #D7D7D7;
+        background-color: #FFF; }
+      .main-content .discount_statistics .discounts_info .discount_block .icon_add {
+        margin-left: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+        vertical-align: top; }
+        .main-content .discount_statistics .discounts_info .discount_block .icon_add:hover {
+          color: #7CCE6C; }
+  .main-content .discount_statistics .discounts_chart {
+    display: inline-block;
+    min-width: 800px;
+    vertical-align: top; }
+    .main-content .discount_statistics .discounts_chart .buttons_block_diagram {
+      text-align: center;
+      margin: 20px 0; }
+      .main-content .discount_statistics .discounts_chart .buttons_block_diagram .btn-custom, .main-content .discount_statistics .discounts_chart .buttons_block_diagram .btnBack, .main-content .discount_statistics .discounts_chart .buttons_block_diagram .modal_window_bg .modal_window .buttons_modal_block .btn-modal-confirm, .modal_window_bg .modal_window .buttons_modal_block .main-content .discount_statistics .discounts_chart .buttons_block_diagram .btn-modal-confirm, .main-content .discount_statistics .discounts_chart .buttons_block_diagram .modal_window_bg .modal_window .buttons_modal_block .btn-modal-cancel, .modal_window_bg .modal_window .buttons_modal_block .main-content .discount_statistics .discounts_chart .buttons_block_diagram .btn-modal-cancel {
+        padding: 5px 10px;
+        margin-left: -3px;
+        margin-right: -3px;
+        font-size: 14px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none; }
+        .main-content .discount_statistics .discounts_chart .buttons_block_diagram .btn-custom:hover, .main-content .discount_statistics .discounts_chart .buttons_block_diagram .btnBack:hover, .main-content .discount_statistics .discounts_chart .buttons_block_diagram .modal_window_bg .modal_window .buttons_modal_block .btn-modal-confirm:hover, .modal_window_bg .modal_window .buttons_modal_block .main-content .discount_statistics .discounts_chart .buttons_block_diagram .btn-modal-confirm:hover, .main-content .discount_statistics .discounts_chart .buttons_block_diagram .modal_window_bg .modal_window .buttons_modal_block .btn-modal-cancel:hover, .modal_window_bg .modal_window .buttons_modal_block .main-content .discount_statistics .discounts_chart .buttons_block_diagram .btn-modal-cancel:hover, .main-content .discount_statistics .discounts_chart .buttons_block_diagram .btn-custom:focus, .main-content .discount_statistics .discounts_chart .buttons_block_diagram .btnBack:focus, .main-content .discount_statistics .discounts_chart .buttons_block_diagram .modal_window_bg .modal_window .buttons_modal_block .btn-modal-confirm:focus, .modal_window_bg .modal_window .buttons_modal_block .main-content .discount_statistics .discounts_chart .buttons_block_diagram .btn-modal-confirm:focus, .main-content .discount_statistics .discounts_chart .buttons_block_diagram .modal_window_bg .modal_window .buttons_modal_block .btn-modal-cancel:focus, .modal_window_bg .modal_window .buttons_modal_block .main-content .discount_statistics .discounts_chart .buttons_block_diagram .btn-modal-cancel:focus {
+          -webkit-box-shadow: inset 0 0 10px #4d4d4d;
+          -moz-box-shadow: inset 0 0 10px #4d4d4d;
+          box-shadow: inset 0 0 10px #4d4d4d;
+          background: linear-gradient(to top, #7FD0FF, #FFF); }
+    .main-content .discount_statistics .discounts_chart .discounts_chart_block {
+      background-color: #FFF;
+      border: 1px solid #D7D7D7;
+      padding: 15px;
+      margin-top: 15px;
+      margin-bottom: 30px; }
+      .main-content .discount_statistics .discounts_chart .discounts_chart_block #discounts_statistics_month,
+      .main-content .discount_statistics .discounts_chart .discounts_chart_block #discounts_statistics_week,
+      .main-content .discount_statistics .discounts_chart .discounts_chart_block #discounts_statistics_day {
+        display: none;
+        width: 100%; }
+  .main-content .discount_statistics .buttons_block_filter {
+    clear: both;
+    text-align: center; }
+    .main-content .discount_statistics .buttons_block_filter .btn-custom, .main-content .discount_statistics .buttons_block_filter .btnBack, .main-content .discount_statistics .buttons_block_filter .modal_window_bg .modal_window .buttons_modal_block .btn-modal-confirm, .modal_window_bg .modal_window .buttons_modal_block .main-content .discount_statistics .buttons_block_filter .btn-modal-confirm, .main-content .discount_statistics .buttons_block_filter .modal_window_bg .modal_window .buttons_modal_block .btn-modal-cancel, .modal_window_bg .modal_window .buttons_modal_block .main-content .discount_statistics .buttons_block_filter .btn-modal-cancel {
+      margin: 0 10px; }
+  .main-content .discount_statistics .modal_window_bg .modal_window_discount {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    width: 1180px;
+    height: auto;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    color: #393939;
+    background-color: #F0F0F0;
+    border: 2px solid #1a1a1a;
+    padding: 20px;
+    -webkit-box-shadow: 0 0 10px #d9fcd3;
+    -moz-box-shadow: 0 0 10px #d9fcd3;
+    box-shadow: 0 0 10px #d9fcd3; }
+    .main-content .discount_statistics .modal_window_bg .modal_window_discount h4 {
+      text-align: center;
+      margin-bottom: 30px; }
+    .main-content .discount_statistics .modal_window_bg .modal_window_discount .search_block_nav {
+      min-height: 35px;
+      margin: 17px; }
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .search_block_nav .search_block {
+        position: relative;
+        display: block;
+        width: 369px;
+        height: 35px;
+        float: left; }
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .search_block_nav .search_block input {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 300px;
+          height: 35px;
+          padding: 5px 10px;
+          border: 1px solid #4d4d4d; }
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .search_block_nav .search_block .btn-search {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 70px;
+          height: 35px;
+          cursor: pointer;
+          text-align: center;
+          border: 1px solid #393939;
+          font-weight: bold;
+          color: #4d4d4d;
+          background: linear-gradient(to top, #7CCE6C, #d9fcd3); }
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .search_block_nav .search_block .btn-search:hover, .main-content .discount_statistics .modal_window_bg .modal_window_discount .search_block_nav .search_block .btn-search:focus {
+            -webkit-box-shadow: inset 0 0 10px #4d4d4d;
+            -moz-box-shadow: inset 0 0 10px #4d4d4d;
+            box-shadow: inset 0 0 10px #4d4d4d;
+            background: linear-gradient(to top, #7FD0FF, #FFF); }
+    .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list,
+    .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list,
+    .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list,
+    .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list {
+      clear: both;
+      text-align: center; }
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .discount_name_list_true,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .discount_name_list_false,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .promo_list_true,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .promo_list_false,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .location_list_true,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .location_list_false,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .company_list_true,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .company_list_false,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .discount_name_list_true,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .discount_name_list_false,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .promo_list_true,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .promo_list_false,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .location_list_true,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .location_list_false,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .company_list_true,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .company_list_false,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .discount_name_list_true,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .discount_name_list_false,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .promo_list_true,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .promo_list_false,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .location_list_true,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .location_list_false,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .company_list_true,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .company_list_false,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .discount_name_list_true,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .discount_name_list_false,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .promo_list_true,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .promo_list_false,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .location_list_true,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .location_list_false,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .company_list_true,
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .company_list_false {
+        display: inline-block;
+        width: 540px;
+        margin: 10px; }
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .discount_name_list_true h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .discount_name_list_false h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .promo_list_true h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .promo_list_false h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .location_list_true h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .location_list_false h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .company_list_true h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .company_list_false h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .discount_name_list_true h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .discount_name_list_false h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .promo_list_true h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .promo_list_false h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .location_list_true h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .location_list_false h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .company_list_true h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .company_list_false h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .discount_name_list_true h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .discount_name_list_false h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .promo_list_true h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .promo_list_false h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .location_list_true h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .location_list_false h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .company_list_true h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .company_list_false h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .discount_name_list_true h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .discount_name_list_false h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .promo_list_true h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .promo_list_false h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .location_list_true h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .location_list_false h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .company_list_true h5,
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .company_list_false h5 {
+          position: relative;
+          text-align: center;
+          background: linear-gradient(to top, #D7D7D7, #FFF);
+          border: 1px solid #D7D7D7;
+          padding: 10px;
+          margin: 0; }
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .discount_name_list_true h5 .btn-custom, .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .discount_name_list_true h5 .btnBack, .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .discount_name_list_true h5 .modal_window .buttons_modal_block .btn-modal-confirm, .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .discount_name_list .discount_name_list_true h5 .btn-modal-confirm, .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .discount_name_list_true h5 .modal_window .buttons_modal_block .btn-modal-cancel, .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .discount_name_list .discount_name_list_true h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .discount_name_list_false h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .discount_name_list_false h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .discount_name_list_false h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .discount_name_list .discount_name_list_false h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .discount_name_list_false h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .discount_name_list .discount_name_list_false h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .promo_list_true h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .promo_list_true h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .promo_list_true h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .discount_name_list .promo_list_true h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .promo_list_true h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .discount_name_list .promo_list_true h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .promo_list_false h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .promo_list_false h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .promo_list_false h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .discount_name_list .promo_list_false h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .promo_list_false h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .discount_name_list .promo_list_false h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .location_list_true h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .location_list_true h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .location_list_true h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .discount_name_list .location_list_true h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .location_list_true h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .discount_name_list .location_list_true h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .location_list_false h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .location_list_false h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .location_list_false h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .discount_name_list .location_list_false h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .location_list_false h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .discount_name_list .location_list_false h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .company_list_true h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .company_list_true h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .company_list_true h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .discount_name_list .company_list_true h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .company_list_true h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .discount_name_list .company_list_true h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .company_list_false h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .company_list_false h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .company_list_false h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .discount_name_list .company_list_false h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .discount_name_list .company_list_false h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .discount_name_list .company_list_false h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .discount_name_list_true h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .discount_name_list_true h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .discount_name_list_true h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .promo_list .discount_name_list_true h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .discount_name_list_true h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .promo_list .discount_name_list_true h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .discount_name_list_false h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .discount_name_list_false h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .discount_name_list_false h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .promo_list .discount_name_list_false h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .discount_name_list_false h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .promo_list .discount_name_list_false h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .promo_list_true h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .promo_list_true h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .promo_list_true h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .promo_list .promo_list_true h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .promo_list_true h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .promo_list .promo_list_true h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .promo_list_false h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .promo_list_false h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .promo_list_false h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .promo_list .promo_list_false h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .promo_list_false h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .promo_list .promo_list_false h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .location_list_true h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .location_list_true h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .location_list_true h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .promo_list .location_list_true h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .location_list_true h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .promo_list .location_list_true h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .location_list_false h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .location_list_false h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .location_list_false h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .promo_list .location_list_false h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .location_list_false h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .promo_list .location_list_false h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .company_list_true h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .company_list_true h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .company_list_true h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .promo_list .company_list_true h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .company_list_true h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .promo_list .company_list_true h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .company_list_false h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .company_list_false h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .company_list_false h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .promo_list .company_list_false h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .promo_list .company_list_false h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .promo_list .company_list_false h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .discount_name_list_true h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .discount_name_list_true h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .discount_name_list_true h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .discount_name_list_true h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .discount_name_list_true h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .discount_name_list_true h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .discount_name_list_false h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .discount_name_list_false h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .discount_name_list_false h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .discount_name_list_false h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .discount_name_list_false h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .discount_name_list_false h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .promo_list_true h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .promo_list_true h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .promo_list_true h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .promo_list_true h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .promo_list_true h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .promo_list_true h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .promo_list_false h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .promo_list_false h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .promo_list_false h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .promo_list_false h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .promo_list_false h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .promo_list_false h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .location_list_true h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .location_list_true h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .location_list_true h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .location_list_true h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .location_list_true h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .location_list_true h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .location_list_false h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .location_list_false h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .location_list_false h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .location_list_false h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .location_list_false h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .location_list_false h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .company_list_true h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .company_list_true h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .company_list_true h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .company_list_true h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .company_list_true h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .company_list_true h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .company_list_false h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .company_list_false h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .company_list_false h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .company_list_false h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .location_list .company_list_false h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .location_list .company_list_false h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .discount_name_list_true h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .discount_name_list_true h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .discount_name_list_true h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .discount_name_list_true h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .discount_name_list_true h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .discount_name_list_true h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .discount_name_list_false h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .discount_name_list_false h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .discount_name_list_false h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .discount_name_list_false h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .discount_name_list_false h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .discount_name_list_false h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .promo_list_true h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .promo_list_true h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .promo_list_true h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .promo_list_true h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .promo_list_true h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .promo_list_true h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .promo_list_false h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .promo_list_false h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .promo_list_false h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .promo_list_false h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .promo_list_false h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .promo_list_false h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .location_list_true h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .location_list_true h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .location_list_true h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .location_list_true h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .location_list_true h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .location_list_true h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .location_list_false h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .location_list_false h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .location_list_false h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .location_list_false h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .location_list_false h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .location_list_false h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .company_list_true h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .company_list_true h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .company_list_true h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .company_list_true h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .company_list_true h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .company_list_true h5 .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .company_list_false h5 .btn-custom,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .company_list_false h5 .btnBack,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .company_list_false h5 .modal_window .buttons_modal_block .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .company_list_false h5 .btn-modal-confirm,
+          .main-content .discount_statistics .modal_window_bg .modal_window_discount .company_list .company_list_false h5 .modal_window .buttons_modal_block .btn-modal-cancel,
+          .main-content .discount_statistics .modal_window_bg .modal_window .buttons_modal_block .modal_window_discount .company_list .company_list_false h5 .btn-modal-cancel {
+            position: absolute;
+            top: 10px;
+            right: 5px;
+            font-size: 14px;
+            width: 125px;
+            padding: 5px;
+            -webkit-box-shadow: 0 0 2px #4d4d4d;
+            -moz-box-shadow: 0 0 2px #4d4d4d;
+            box-shadow: 0 0 2px #4d4d4d; }
+    .main-content .discount_statistics .modal_window_bg .modal_window_discount .buttons_modal_block {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 15px; }
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .buttons_modal_block .btn-modal-confirm {
+        margin: 0 10px; }
+      .main-content .discount_statistics .modal_window_bg .modal_window_discount .buttons_modal_block .btn-modal-cancel {
+        background: linear-gradient(to top, #FE4D44, #FED8D6); }
+        .main-content .discount_statistics .modal_window_bg .modal_window_discount .buttons_modal_block .btn-modal-cancel:hover, .main-content .discount_statistics .modal_window_bg .modal_window_discount .buttons_modal_block .btn-modal-cancel:focus {
+          -webkit-box-shadow: inset 0 0 10px #4d4d4d;
+          -moz-box-shadow: inset 0 0 10px #4d4d4d;
+          box-shadow: inset 0 0 10px #4d4d4d;
+          background: linear-gradient(to top, #7FD0FF, #FFF); }
+  .main-content .notices .notices_filter {
+    display: inline-block;
+    padding: 5px 0;
+    font-weight: 600;
+    color: #393939;
+    border: 1px solid #4d4d4d;
+    background: linear-gradient(to top, #7CCE6C, #d9fcd3); }
+    .main-content .notices .notices_filter .filter_block {
+      display: inline-block;
+      padding-right: 15px;
+      padding-left: 10px;
+      border-right: 1px solid #4d4d4d; }
+      .main-content .notices .notices_filter .filter_block span {
+        line-height: 35px; }
+      .main-content .notices .notices_filter .filter_block:last-child {
+        border-right: none; }
+      .main-content .notices .notices_filter .filter_block .search_block {
+        position: relative;
+        display: block;
+        width: 250px;
+        height: 35px;
+        float: right;
+        margin-left: 20px; }
+        .main-content .notices .notices_filter .filter_block .search_block input {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 250px;
+          height: 35px;
+          padding: 5px 35px 5px 10px;
+          border: 1px solid #4d4d4d; }
+        .main-content .notices .notices_filter .filter_block .search_block .icon-search-notices {
+          position: absolute;
+          top: 11px;
+          right: 10px;
+          cursor: pointer;
+          color: #4d4d4d; }
+          .main-content .notices .notices_filter .filter_block .search_block .icon-search-notices:hover, .main-content .notices .notices_filter .filter_block .search_block .icon-search-notices:focus {
+            color: #61A054; }
+      .main-content .notices .notices_filter .filter_block label {
+        position: relative;
+        top: -2px;
+        margin-left: 20px;
+        margin-bottom: 0; }
+  .main-content .notices table#table_notices tbody td:first-child {
+    text-align: center;
+    width: 50px; }
+  .main-content .notices table#table_notices tbody td:nth-child(3) {
+    width: 400px; }
+  .main-content .notices #modal_window_error .modal_window {
+    width: 600px;
+    padding: 20px; }
+    .main-content .notices #modal_window_error .modal_window .error_block {
+      text-align: left;
+      margin: 10px 0; }
+      .main-content .notices #modal_window_error .modal_window .error_block span:first-child {
+        display: inline-block;
+        width: 260px;
+        min-height: 35px;
+        line-height: 20px;
+        font-weight: 600;
+        vertical-align: top; }
+      .main-content .notices #modal_window_error .modal_window .error_block span:last-child {
+        display: inline-block;
+        width: 280px;
+        min-height: 35px;
+        padding: 5px 10px;
+        margin: 0;
+        border: 1px solid #D7D7D7;
+        background-color: #FFF; }
+
+.login_main_block {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: #fff; }
+  .login_main_block .login_block {
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #F0F0F0;
+    padding: 20px;
+    -webkit-box-shadow: 0 0 10px #4d4d4d;
+    -moz-box-shadow: 0 0 10px #4d4d4d;
+    box-shadow: 0 0 10px #4d4d4d; }
+    .login_main_block .login_block .admin_text {
+      text-align: center;
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 34px;
+      font-style: italic;
+      color: #7CCE6C;
+      text-shadow: 1px 1px #4d4d4d; }
+    .login_main_block .login_block .login_text,
+    .login_main_block .login_block .password_text {
+      font-weight: 600;
+      display: block;
+      padding: 0;
+      margin-top: 15px;
+      margin-bottom: 3px;
+      margin-left: 5px; }
+    .login_main_block .login_block input {
+      width: 100%;
+      height: 30px;
+      border: 1px solid #D7D7D7;
+      padding: 5px 10px;
+      margin: 0; }
+    .login_main_block .login_block .btn-custom, .login_main_block .login_block .btnBack, .login_main_block .login_block .modal_window_bg .modal_window .buttons_modal_block .btn-modal-confirm, .modal_window_bg .modal_window .buttons_modal_block .login_main_block .login_block .btn-modal-confirm, .login_main_block .login_block .modal_window_bg .modal_window .buttons_modal_block .btn-modal-cancel, .modal_window_bg .modal_window .buttons_modal_block .login_main_block .login_block .btn-modal-cancel {
+      display: block;
+      margin: 20px auto 0; }
+    .login_main_block .login_block #error_login {
+      color: #FE4D44;
+      font-weight: 600;
+      font-style: italic;
+      font-size: 18px;
+      margin-top: 20px;
+      text-align: center; }
+
+/* === LOGIN PAGE === */
+
+/*# sourceMappingURL=main.css.map */

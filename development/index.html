@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Главная страница</title>
+   <link rel="stylesheet" href="libs/bootstrap/bootstrap.css">
+   <link rel="stylesheet" href="libs/fontawesome/fontawesome-all.css">
+   <link rel="stylesheet" href="libs/jquery-ui/jquery-ui.min.css">
+   <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- USER NAVIGATION -->
+//= template/user_nav.html
+
+
+<!-- SIDEBAR MENU -->
+//= template/sidebar.html
+
+
+<!-- Main Content -->
+<div class="main-content">
+   <!-- ===== ОСНОВНЫЕ ===== -->
+   <div class="main_page">
+      <h4>Посещаемость</h4>
+      <div class="btnNav">
+         <button class="btn-custom" id="js-btn_today">Сегодня</button>
+         <button class="btn-custom" id="js-btn_yesterday">Вчера</button>
+         <button class="btn-custom" id="js-btn_week">7 дней</button>
+         <button class="btn-custom" id="js-btn_one_month">1 месяц</button>
+         <button class="btn-custom" id="js-btn_tree_month">3 месяца</button>
+      </div>
+      <div class="dateNav">
+         <span class="dateNav__name">Выбрать период с</span>
+         <input class="dateNav__input datepicker" id="js-start_date">
+         <span class="dateNav__name">по</span>
+         <input class="dateNav__input datepicker" id="js-end_date">
+         <button class="btn-custom" id="js-apply_date">Применить</button>
+      </div>
+      <div id="js-bar_block"></div>
+      <h5>Предупреждения</h5>
+      <div id="js-warning"></div>
+      <a href="notices.html" class="list_notices">Список</a>
+   </div>
+</div>
+
+
+<script src="libs/jquery/jquery-3.3.1.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="libs/chart/chart.min.js"></script>
+<script src="libs/jquery-ui/jquery-ui.min.js"></script>
+<script src="libs/datepicker/datepicker-ru.js"></script>
+<script src="libs/jquery-mask/jquery.mask.min.js"></script>
+<script src="libs/bootstrap/bootstrap.min.js"></script>
+<script src="js/main.js" defer></script>
+<script src="js/ajax_chart.js" defer></script>
+</body>
+</html>

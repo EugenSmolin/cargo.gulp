@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Детальная информация о компании</title>
+   <link rel="stylesheet" href="libs/bootstrap/bootstrap.css">
+   <link rel="stylesheet" href="libs/fontawesome/fontawesome-all.css">
+   <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- USER NAVIGATION -->
+//= template/user_nav.html
+
+
+<!-- SIDEBAR MENU -->
+//= template/sidebar.html
+
+
+<!-- Main Content -->
+<div class="main-content">
+   <!-- ===== ТРАНСПОРТ/ЭКРАН ===== -->
+   <div class="transport_screen">
+      <div class="warning_block">
+         <span class="warning_window_true">Сведения о компании сохранены!</span>
+         <span class="warning_window_false">Проверьте правильность заполнения сведений!</span>
+      </div>
+
+      <button id="btn-back-list-transport" class="btn-custom btn-back-list-transport">
+         <i class="fas fa-chevron-left fa-sm icon-back-list-transport"></i>
+         <span>назад к списку</span>
+      </button>
+
+      <div id="form_company">
+         <div>
+            <div class="status_company">
+               <span id="status_company"></span>
+            </div>
+            <div class="name_company_block">
+               <input type="checkbox" class="checkbox" id="can_order">
+               <label for="can_order" class="ios-switch"></label>
+            </div>
+            <div id="status_company_active"></div>
+            <div id="logo_company"></div>
+            <div class="companyInfo">
+               <span class="companyInfo__name">Время последнего запроса</span>
+               <span class="companyInfo__time" id="last_visit_time"></span>
+            </div>
+            <div class="companyInfo">
+               <span class="companyInfo__name">Наименование компании</span>
+               <input class="companyInfo__input" type="text" id="name_company">
+            </div>
+            <div class="companyInfo">
+               <span class="companyInfo__name">Страна компании</span>
+               <input class="companyInfo__input" type="text" id="lang_company">
+            </div>
+            <div class="companyInfo">
+               <span class="companyInfo__name">Телефон компании</span>
+               <input class="companyInfo__input" type="text" id="phone_company">
+            </div>
+            <div class="companyInfo">
+               <span class="companyInfo__name">Email компании</span>
+               <input class="companyInfo__input" type="text" id="email_company">
+            </div>
+            <div class="companyInfo">
+               <span class="companyInfo__name">Сайт компании</span>
+               <span class="companyInfo__site" id="site_edit_company"></span>
+               <input class="companyInfo__input" type="text" id="site_company">
+               <i class="far fa-edit fa-lg companyInfo__icon" id="js-site__edit"></i>
+            </div>
+            <!--<div class="companyInfo">
+               <span class="companyInfo__name">Наименование модуля</span>
+               <input class="companyInfo__input" type="text" id="module_name_company">
+            </div>-->
+         </div>
+
+         <div class="tariff_types">
+            <h4>Тарифы</h4>
+            <div id="tariff_types"></div>
+            <!--<button id="btn-add-tariff" class="btn-custom btn_add_tariff">Добавить тариф</button>-->
+         </div>
+
+         <div class="payer_types">
+            <h4>Плательщики и способы</h4>
+            <div id="payer_types"></div>
+         </div>
+
+         <div class="documents">
+            <h4>Документы</h4>
+            <div id="document_types"></div>
+            <!--<button class="btn-custom btn-add-document">Добавить документ</button>-->
+         </div>
+
+         <div class="requisites">
+            <h4>Реквизиты компании</h4>
+            <textarea placeholder="Поле для ввода реквизитов компании"></textarea>
+         </div>
+
+         <div class="buttons_block">
+            <button id="btn-save-company-form" class="btn-custom">Сохранить</button>
+         </div>
+      </div>
+
+      <div class="modal_window_bg" id="modal_window_bg">
+         <div class="modal_window">
+            <h4>Сохранить изменения?</h4>
+            <div class="buttons_modal_block">
+               <button class="btn-custom btn-modal-confirm" id="btn-modal-confirm">Да</button>
+               <button class="btn-custom btn-modal-cancel" id="btn-modal-cancel">Нет</button>
+            </div>
+         </div>
+      </div>
+
+      <!-- === ДОБАВИТЬ НОВЫЙ ТАРИФ === -->
+      <!--<div class="modal_window_bg" id="modal_window_add_tariff">
+         <div class="modal_window">
+            <h4>Добавить новый тариф</h4>
+            <div class="tariff_block">
+               <span>Активность тарифа:</span>
+               <input type="checkbox" class="" id="active_tariff">
+               <label for="active_tariff"></label>
+            </div>
+            <div class="tariff_block">
+               <span>Название тарифа:</span>
+               <input class="modal_inp" id="descr_tariff" type="text">
+            </div>
+            <div class="tariff_block">
+               <span>Коэффициент тарифа:</span>
+               <input class="modal_inp" id="coeff_tariff" type="text" value="0.0000" maxlength="6">
+            </div>
+            <div class="buttons_modal_block">
+               <button class="btn-custom btn-modal-confirm" id="btn-modal-tariff-confirm">Да</button>
+               <button class="btn-custom btn-modal-cancel" id="btn-modal-tariff-cancel">Нет</button>
+            </div>
+         </div>
+      </div>-->
+   </div>
+</div>
+
+
+<script src="libs/jquery/jquery-3.3.1.min.js"></script>
+<script src="libs/autocomplete/autocomplete.min.js"></script>
+<script src="libs/jquery-mask/jquery.mask.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="libs/bootstrap/bootstrap.min.js"></script>
+<script src="js/main.js" defer></script>
+<script src="js/ajax_company.js" defer></script>
+</body>
+</html>

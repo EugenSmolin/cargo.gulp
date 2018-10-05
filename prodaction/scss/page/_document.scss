@@ -1,0 +1,69 @@
+.document {
+   .blockSelection {
+      display: inline-block;
+      width: 400px;
+      float: left;
+      margin-right: 50px;
+
+      &__list {
+         min-height: 35px;
+         margin-top: 5px;
+         margin-bottom: 40px;
+         border: 1px solid $lightGrey;
+         background-color: #FFF;
+
+         ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+               width: 100%;
+               //height: 35px;
+               border-bottom: 1px solid $lightGrey;
+               padding: 5px 10px;
+               font-weight: 600;
+               cursor: pointer;
+
+               .list__icon {
+                  display: inline-block;
+                  width: 25px;
+                  height: 25px;
+                  line-height: 20px;
+                  float: right;
+                  text-align: center;
+                  border: 2px solid $darkBlue;
+                  -webkit-border-radius: 50%;
+                  -moz-border-radius: 50%;
+                  border-radius: 50%;
+                  color: $darkBlue;
+               }
+
+               &:hover {
+                  background-color: $lightGreen;
+               }
+            }
+         }
+      }
+   }
+   .blockDocument {
+      display: inline-block;
+      width: 610px;
+
+      &__name {
+         width: 100%;
+         height: 35px;
+         padding: 5px;
+         margin-bottom: 30px;
+         border: 1px solid $lightGrey;
+         background-color: #FFF;
+      }
+      &__btn {
+         margin-top: 50px;
+
+         .btn__save {
+            margin-right: 20px;
+         }
+      }
+   }
+}

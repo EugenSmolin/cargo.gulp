@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Создание/Редактирование документа</title>
+   <link rel="stylesheet" href="libs/bootstrap/bootstrap.css">
+   <link rel="stylesheet" href="libs/fontawesome/fontawesome-all.css">
+   <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- USER NAVIGATION -->
+<div class="header_nav">
+   <div id="js-open_menu"><i class="fas fa-bars"></i></div>
+   <div class="user_block">
+      <span class="user" id="user">
+         <i class="fas fa-user fa-lg icon-user"></i>
+         <span class="user_profile"></span>
+         <i class="fas fa-chevron-down icon-profile"></i>
+      </span>
+
+      <!-- Выпадающий список -->
+      <ul class="user_list">
+         <li>
+            <div class="btn-logout">
+               <i class="fas fa-sign-out-alt icon-logout"></i>
+               Выход
+            </div>
+         </li>
+      </ul>
+   </div>
+</div>
+
+
+<!-- SIDEBAR MENU -->
+<div id="sidebar-wrapper">
+   <div class="admin_text" id="js-close_sidebar">
+      Admin Panel
+   </div>
+   <!-- Menu TABS -->
+   <ul class="sidebar-tabs-header">
+      <li>
+         <a href="index.html" data-active="tab">Основные</a>
+      </li>
+      <li>
+         <a href="companies.html" data-active="tab">Транспорт</a>
+      </li>
+      <li>
+         <a href="clients.html" data-active="tab">Клиент</a>
+      </li>
+      <li>
+         <a href="orders.html" data-active="tab">Заказы</a>
+      </li>
+      <li>
+         <a href="documents.html" data-active="tab">Документы</a>
+      </li>
+      <li>
+         <a href="discounts.html" data-active="tab">Скидки</a>
+      </li>
+      <li>
+         <a href="transfers.html" data-active="tab">Переводы</a>
+      </li>
+      <li>
+         <a href="settings.html" data-active="tab">Настройки</a>
+      </li>
+      <li>
+         <a href="notices.html" data-active="tab">Уведомления</a>
+      </li>
+      <!--<li>
+         <a href="widjet.html">Виджет</a>
+      </li>-->
+   </ul>
+</div>
+
+
+<!-- Main Content -->
+<div class="main-content">
+   <!-- ===== СОЗДАНИЕ/РЕДАКТИРОВАНИЕ ДОКУМЕНТА ===== -->
+   <div class="document">
+      <!--<h1>Создание/Редактирование Документа</h1>-->
+      <button class="btnBack" id="js-btn_back">
+         <i class="fas fa-chevron-left fa-sm btnBack__icon"></i>
+         <span class="btnBack__name">назад</span>
+      </button>
+
+      <div class="blockSelection">
+         <h5>Выбор блока</h5>
+         <div class="searchBlock">
+            <input class="searchBlock__input" id="js-input_search" type="text" placeholder="Поиск...">
+            <button class="searchBlock__btn" id="js-btn_search">Поиск</button>
+         </div>
+         <div class="blockSelection__list">
+            <ul id="js-selection_list">
+               <li>
+                  <span class="list__name">Заказчика</span>
+                  <i class="fas fa-info list__icon"></i>
+               </li>
+               <li>
+                  <span class="list__name">Исполнителя</span>
+                  <i class="fas fa-info list__icon"></i>
+               </li>
+               <li>
+                  <span class="list__name">Test 1</span>
+                  <i class="fas fa-info list__icon"></i>
+               </li>
+               <li>
+                  <span class="list__name">Test 2</span>
+                  <i class="fas fa-info list__icon"></i>
+               </li>
+               <li>
+                  <span class="list__name">Test 3</span>
+                  <i class="fas fa-info list__icon"></i>
+               </li>
+            </ul>
+         </div>
+      </div>
+
+      <div class="blockDocument">
+         <h5>Название документа</h5>
+         <input class="blockDocument__name" type="text" placeholder="Название документа">
+         <h5>Содержание документа</h5>
+         <textarea class="blockDocument__content" id="js-document_content"></textarea>
+         <div class="blockDocument__btn">
+            <button class="btn-custom btn__save" id="js-save_document">Сохранить</button>
+            <button class="btn-custom" id="js-watch_document">Посмотреть</button>
+         </div>
+      </div>
+
+      <!-- Модальное окно для сохранения документа -->
+      <div class="modal_window_bg" id="js-window_save_doc">
+         <div class="modal_window">
+            <h4>Сохранить документ?</h4>
+            <div class="buttons_modal_block">
+               <button class="btn-modal-confirm" id="js-confirm_window_save">Да</button>
+               <button class="btn-modal-cancel" id="js-cancel_window_save">Нет</button>
+            </div>
+         </div>
+      </div>
+
+      <!-- Модальное окно для просмотра документа -->
+      <div class="modal_window_bg" id="js-window_watch_doc">
+         <div class="modal_window">
+            <h4>Сначала сохраните документ!</h4>
+            <div class="buttons_modal_block">
+               <!--<button class="btn-modal-confirm"></button>-->
+               <button class="btn-modal-cancel" id="js-close_window">Закрыть</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+<script src="libs/jquery/jquery-3.3.1.min.js"></script>
+<script src="libs/ckeditor/ckeditor.js"></script>
+<script src="libs/bootstrap/bootstrap.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/main.js" defer></script>
+<script src="js/ajax_document.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+.document_info {
+   .document_form {
+      width: 1000px;
+      border: 1px solid $lightGrey;
+      background-color: #FFF;
+      padding: 15px;
+
+      h3 {
+         margin-bottom: 20px;
+      }
+   }
+   .order_str {
+      font-weight: bold;
+      font-style: italic;
+      margin: 10px 0;
+
+      &::after {
+         content: '>>';
+         display: inline-block;
+         margin-left: 10px;
+      }
+   }
+   .order_block {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      border-bottom: 1px solid #d7d7d7;
+      padding-bottom: 10px;
+
+      h6 {
+         max-width: 270px;
+         margin-right: 15px;
+         margin-bottom: 0;
+      }
+   }
+   .shipping_section {
+      display: flex;
+      justify-content: space-between;
+
+      &-top {
+         margin-top: 20px;
+      }
+      &-bottom {
+         margin-bottom: 20px;
+      }
+   }
+   .shipping_block {
+      width: 470px;
+      border: 1px solid $lightGrey;
+      padding: 10px;
+      margin: 5px;
+      vertical-align: top;
+      flex-grow: 1;
+
+      div {
+         line-height: 20px;
+      }
+
+      .name {
+         display: inline-block;
+         text-transform: uppercase;
+         font: italic 600 12px "Stolzl", sans-serif;
+         margin-right: 10px;
+      }
+   }
+   h5 {
+      margin-left: 5px;
+      margin-top: 30px;
+   }
+   .table_cargo {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 10px;
+
+      thead tr th {
+         font-family: "Stolzl", sans-serif;
+         font-weight: bold;
+      }
+
+      thead tr th,
+      tbody tr td {
+         height: 30px;
+         padding: 5px;
+         vertical-align: middle;
+         border: 1px solid $lightGrey;
+      }
+   }
+   .additional_services {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 10px;
+
+      tbody tr td {
+         padding: 10px;
+         vertical-align: top;
+         border: 1px solid $lightGrey;
+      }
+
+      .services_name {
+         &::before {
+            content: '\f14a';
+            font-family: "Font Awesome 5 Free";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+         }
+      }
+   }
+   .total_price {
+      margin: 30px 0;
+   }
+   .conditions {
+      font: 600 10px "Stolzl", sans-serif;
+      margin-bottom: 10px;
+   }
+   .conditions_list {
+      list-style-position: inside;
+      margin-left: 20px;
+      font-size: 10px;
+      line-height: 16px;
+   }
+   .signature_block {
+      display: inline-block;
+      width: 400px;
+      margin: 20px 10px;
+
+      .signature_line {
+         height: 30px;
+         border-bottom: 1px solid $grey;
+      }
+   }
+}

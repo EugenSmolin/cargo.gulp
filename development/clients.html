@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Список клиентов</title>
+   <link rel="stylesheet" href="libs/bootstrap/bootstrap.css">
+   <link rel="stylesheet" href="libs/fontawesome/fontawesome-all.css">
+   <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- USER NAVIGATION -->
+//= template/user_nav.html
+
+
+<!-- SIDEBAR MENU -->
+//= template/sidebar.html
+
+
+<!-- Main Content -->
+<div class="main-content">
+   <!-- ===== КЛИЕНТ ===== -->
+   <div class="clients">
+      <div>
+         <button id="btn-all-clients" class="btn-custom">Все клиенты</button>
+         <span class="search_block">
+            <input id="input_search_clients" type="text" placeholder="Поиск...">
+            <button id="btn_search_clients" class="btn-search">Поиск</button>
+         </span>
+      </div>
+
+      <table id="table_clients" class="tablesorter">
+         <thead>
+         <tr>
+            <th class="sort_last_name">
+               ФИО/Наименование
+               <span class="arrow_sort"></span>
+            </th>
+            <th class="sort_email">
+               Аккаунт
+               <span class="arrow_sort"></span>
+            </th>
+            <th class="sort_approved">
+               Статус
+               <span class="arrow_sort"></span>
+            </th>
+            <th class="sort_last_login">
+               Последнее посещение
+               <span class="arrow_sort"></span>
+            </th>
+            <th class="sort_admin">
+               Роль
+               <span class="arrow_sort"></span>
+            </th>
+         </tr>
+         </thead>
+         <tbody>
+         </tbody>
+      </table>
+   </div>
+</div>
+
+
+<script src="libs/jquery/jquery-3.3.1.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="libs/bootstrap/bootstrap.min.js"></script>
+<script src="js/main.js" defer></script>
+<script src="js/ajax_clients.js" defer></script>
+</body>
+</html>

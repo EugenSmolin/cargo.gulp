@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Список скидок</title>
+   <link rel="stylesheet" href="libs/bootstrap/bootstrap.css">
+   <link rel="stylesheet" href="libs/fontawesome/fontawesome-all.css">
+   <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- USER NAVIGATION -->
+<div class="header_nav">
+   <div id="js-open_menu"><i class="fas fa-bars"></i></div>
+   <div class="user_block">
+      <span class="user" id="user">
+         <i class="fas fa-user fa-lg icon-user"></i>
+         <span class="user_profile"></span>
+         <i class="fas fa-chevron-down icon-profile"></i>
+      </span>
+
+      <!-- Выпадающий список -->
+      <ul class="user_list">
+         <li>
+            <div class="btn-logout">
+               <i class="fas fa-sign-out-alt icon-logout"></i>
+               Выход
+            </div>
+         </li>
+      </ul>
+   </div>
+</div>
+
+
+<!-- SIDEBAR MENU -->
+<div id="sidebar-wrapper">
+   <div class="admin_text" id="js-close_sidebar">
+      Admin Panel
+   </div>
+   <!-- Menu TABS -->
+   <ul class="sidebar-tabs-header">
+      <li>
+         <a href="index.html" data-active="tab">Основные</a>
+      </li>
+      <li>
+         <a href="companies.html" data-active="tab">Транспорт</a>
+      </li>
+      <li>
+         <a href="clients.html" data-active="tab">Клиент</a>
+      </li>
+      <li>
+         <a href="orders.html" data-active="tab">Заказы</a>
+      </li>
+      <li>
+         <a href="documents.html" data-active="tab">Документы</a>
+      </li>
+      <li>
+         <a href="discounts.html" data-active="tab">Скидки</a>
+      </li>
+      <li>
+         <a href="transfers.html" data-active="tab">Переводы</a>
+      </li>
+      <li>
+         <a href="settings.html" data-active="tab">Настройки</a>
+      </li>
+      <li>
+         <a href="notices.html" data-active="tab">Уведомления</a>
+      </li>
+      <!--<li>
+         <a href="widjet.html">Виджет</a>
+      </li>-->
+   </ul>
+</div>
+
+
+<!-- Main Content -->
+<div class="main-content">
+   <!-- ===== СКИДКИ ===== -->
+   <div class="discounts">
+      <div class="discounts_nav">
+         <button class="btn-custom btn_active_discounts" id="btn_active_discounts">Активные</button>
+         <button class="btn-custom btn_archive_discounts" id="btn_archive_discounts">Архив</button>
+         <button class="btn-custom btn_create_discounts" id="btn_create_discounts">Создать</button>
+         <button class="btn-custom" id="btn_discount_statistics">Статистика</button>
+         <span class="search_block">
+            <input id="input_search_discounts" type="text" placeholder="Поиск...">
+            <button id="btn_search_discounts" class="btn-search">Поиск</button>
+         </span>
+      </div>
+
+      <table id="table_discounts" class="tablesorter">
+         <thead>
+         <tr>
+            <th>№</th>
+            <th class="sort_name">
+               Наименование
+               <span class="arrow_sort"></span>
+            </th>
+            <th class="sort_size">
+               Размер, %
+               <span class="arrow_sort"></span>
+            </th>
+            <th class="sort_category">
+               Категория
+               <span class="arrow_sort"></span>
+            </th>
+            <th class="sort_date">
+               Окончание действия
+               <span class="arrow_sort"></span>
+            </th>
+            <th>Локация</th>
+         </tr>
+         </thead>
+         <tbody></tbody>
+      </table>
+   </div>
+</div>
+
+
+<script src="libs/jquery/jquery-3.3.1.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="libs/bootstrap/bootstrap.min.js"></script>
+<script src="js/main.js" defer></script>
+<script src="js/ajax_discounts.js" defer></script>
+</body>
+</html>

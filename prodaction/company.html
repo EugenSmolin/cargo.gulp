@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Детальная информация о компании</title>
+   <link rel="stylesheet" href="libs/bootstrap/bootstrap.css">
+   <link rel="stylesheet" href="libs/fontawesome/fontawesome-all.css">
+   <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- USER NAVIGATION -->
+<div class="header_nav">
+   <div id="js-open_menu"><i class="fas fa-bars"></i></div>
+   <div class="user_block">
+      <span class="user" id="user">
+         <i class="fas fa-user fa-lg icon-user"></i>
+         <span class="user_profile"></span>
+         <i class="fas fa-chevron-down icon-profile"></i>
+      </span>
+
+      <!-- Выпадающий список -->
+      <ul class="user_list">
+         <li>
+            <div class="btn-logout">
+               <i class="fas fa-sign-out-alt icon-logout"></i>
+               Выход
+            </div>
+         </li>
+      </ul>
+   </div>
+</div>
+
+
+<!-- SIDEBAR MENU -->
+<div id="sidebar-wrapper">
+   <div class="admin_text" id="js-close_sidebar">
+      Admin Panel
+   </div>
+   <!-- Menu TABS -->
+   <ul class="sidebar-tabs-header">
+      <li>
+         <a href="index.html" data-active="tab">Основные</a>
+      </li>
+      <li>
+         <a href="companies.html" data-active="tab">Транспорт</a>
+      </li>
+      <li>
+         <a href="clients.html" data-active="tab">Клиент</a>
+      </li>
+      <li>
+         <a href="orders.html" data-active="tab">Заказы</a>
+      </li>
+      <li>
+         <a href="documents.html" data-active="tab">Документы</a>
+      </li>
+      <li>
+         <a href="discounts.html" data-active="tab">Скидки</a>
+      </li>
+      <li>
+         <a href="transfers.html" data-active="tab">Переводы</a>
+      </li>
+      <li>
+         <a href="settings.html" data-active="tab">Настройки</a>
+      </li>
+      <li>
+         <a href="notices.html" data-active="tab">Уведомления</a>
+      </li>
+      <!--<li>
+         <a href="widjet.html">Виджет</a>
+      </li>-->
+   </ul>
+</div>
+
+
+<!-- Main Content -->
+<div class="main-content">
+   <!-- ===== ТРАНСПОРТ/ЭКРАН ===== -->
+   <div class="transport_screen">
+      <div class="warning_block">
+         <span class="warning_window_true">Сведения о компании сохранены!</span>
+         <span class="warning_window_false">Проверьте правильность заполнения сведений!</span>
+      </div>
+
+      <button id="btn-back-list-transport" class="btn-custom btn-back-list-transport">
+         <i class="fas fa-chevron-left fa-sm icon-back-list-transport"></i>
+         <span>назад к списку</span>
+      </button>
+
+      <div id="form_company">
+         <div>
+            <div class="status_company">
+               <span id="status_company"></span>
+            </div>
+            <div class="name_company_block">
+               <input type="checkbox" class="checkbox" id="can_order">
+               <label for="can_order" class="ios-switch"></label>
+            </div>
+            <div id="status_company_active"></div>
+            <div id="logo_company"></div>
+            <div class="companyInfo">
+               <span class="companyInfo__name">Время последнего запроса</span>
+               <span class="companyInfo__time" id="last_visit_time"></span>
+            </div>
+            <div class="companyInfo">
+               <span class="companyInfo__name">Наименование компании</span>
+               <input class="companyInfo__input" type="text" id="name_company">
+            </div>
+            <div class="companyInfo">
+               <span class="companyInfo__name">Страна компании</span>
+               <input class="companyInfo__input" type="text" id="lang_company">
+            </div>
+            <div class="companyInfo">
+               <span class="companyInfo__name">Телефон компании</span>
+               <input class="companyInfo__input" type="text" id="phone_company">
+            </div>
+            <div class="companyInfo">
+               <span class="companyInfo__name">Email компании</span>
+               <input class="companyInfo__input" type="text" id="email_company">
+            </div>
+            <div class="companyInfo">
+               <span class="companyInfo__name">Сайт компании</span>
+               <span class="companyInfo__site" id="site_edit_company"></span>
+               <input class="companyInfo__input" type="text" id="site_company">
+               <i class="far fa-edit fa-lg companyInfo__icon" id="js-site__edit"></i>
+            </div>
+            <!--<div class="companyInfo">
+               <span class="companyInfo__name">Наименование модуля</span>
+               <input class="companyInfo__input" type="text" id="module_name_company">
+            </div>-->
+         </div>
+
+         <div class="tariff_types">
+            <h4>Тарифы</h4>
+            <div id="tariff_types"></div>
+            <!--<button id="btn-add-tariff" class="btn-custom btn_add_tariff">Добавить тариф</button>-->
+         </div>
+
+         <div class="payer_types">
+            <h4>Плательщики и способы</h4>
+            <div id="payer_types"></div>
+         </div>
+
+         <div class="documents">
+            <h4>Документы</h4>
+            <div id="document_types"></div>
+            <!--<button class="btn-custom btn-add-document">Добавить документ</button>-->
+         </div>
+
+         <div class="requisites">
+            <h4>Реквизиты компании</h4>
+            <textarea placeholder="Поле для ввода реквизитов компании"></textarea>
+         </div>
+
+         <div class="buttons_block">
+            <button id="btn-save-company-form" class="btn-custom">Сохранить</button>
+         </div>
+      </div>
+
+      <div class="modal_window_bg" id="modal_window_bg">
+         <div class="modal_window">
+            <h4>Сохранить изменения?</h4>
+            <div class="buttons_modal_block">
+               <button class="btn-custom btn-modal-confirm" id="btn-modal-confirm">Да</button>
+               <button class="btn-custom btn-modal-cancel" id="btn-modal-cancel">Нет</button>
+            </div>
+         </div>
+      </div>
+
+      <!-- === ДОБАВИТЬ НОВЫЙ ТАРИФ === -->
+      <!--<div class="modal_window_bg" id="modal_window_add_tariff">
+         <div class="modal_window">
+            <h4>Добавить новый тариф</h4>
+            <div class="tariff_block">
+               <span>Активность тарифа:</span>
+               <input type="checkbox" class="" id="active_tariff">
+               <label for="active_tariff"></label>
+            </div>
+            <div class="tariff_block">
+               <span>Название тарифа:</span>
+               <input class="modal_inp" id="descr_tariff" type="text">
+            </div>
+            <div class="tariff_block">
+               <span>Коэффициент тарифа:</span>
+               <input class="modal_inp" id="coeff_tariff" type="text" value="0.0000" maxlength="6">
+            </div>
+            <div class="buttons_modal_block">
+               <button class="btn-custom btn-modal-confirm" id="btn-modal-tariff-confirm">Да</button>
+               <button class="btn-custom btn-modal-cancel" id="btn-modal-tariff-cancel">Нет</button>
+            </div>
+         </div>
+      </div>-->
+   </div>
+</div>
+
+
+<script src="libs/jquery/jquery-3.3.1.min.js"></script>
+<script src="libs/autocomplete/autocomplete.min.js"></script>
+<script src="libs/jquery-mask/jquery.mask.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="libs/bootstrap/bootstrap.min.js"></script>
+<script src="js/main.js" defer></script>
+<script src="js/ajax_company.js" defer></script>
+</body>
+</html>

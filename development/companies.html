@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Список компаний</title>
+   <link rel="stylesheet" href="libs/bootstrap/bootstrap.css">
+   <link rel="stylesheet" href="libs/fontawesome/fontawesome-all.css">
+   <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- USER NAVIGATION -->
+//= template/user_nav.html
+
+
+<!-- SIDEBAR MENU -->
+//= template/sidebar.html
+
+
+<!-- Main Content -->
+<div class="main-content">
+   <!-- ===== ТРАНСПОРТ ===== -->
+   <div class="transport">
+      <div class="transport_nav">
+         <button id="btn-all-trans-company" class="btn-custom">Все ТК</button>
+         <div class="transport_filter">
+            <span>Фильтр по активности</span>
+            <input id="check_trans_filter" type="checkbox">
+            <label for="check_trans_filter"></label>
+         </div>
+         <span class="search_block">
+            <input id="input_search_trans" type="text" placeholder="Поиск...">
+            <button id="btn_search_trans" class="btn-search">Поиск</button>
+         </span>
+      </div>
+      <div class="transport_list">
+         <table id="table_transport" class="tablesorter">
+            <thead>
+            <tr>
+               <th class="sort_active">
+                  Активность
+                  <span class="arrow_sort"></span>
+               </th>
+               <th class="sort_company">
+                  Наименование
+                  <span class="arrow_sort"></span>
+               </th>
+               <th>Сайт</th>
+               <th>Логотип</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+         </table>
+      </div>
+   </div>
+</div>
+
+
+<script src="libs/jquery/jquery-3.3.1.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="libs/bootstrap/bootstrap.min.js"></script>
+<script src="js/main.js" defer></script>
+<script src="js/ajax_companies.js" defer></script>
+</body>
+</html>

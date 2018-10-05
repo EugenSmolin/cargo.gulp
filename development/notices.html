@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Список уведомлений</title>
+   <link rel="stylesheet" href="libs/bootstrap/bootstrap.css">
+   <link rel="stylesheet" href="libs/fontawesome/fontawesome-all.css">
+   <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- USER NAVIGATION -->
+//= template/user_nav.html
+
+
+<!-- SIDEBAR MENU -->
+//= template/sidebar.html
+
+
+<!-- Main Content -->
+<div class="main-content">
+   <!-- ===== УВЕДОМЛЕНИЯ ===== -->
+   <div class="notices">
+      <div class="notices_filter">
+         <div class="filter_block">
+            <span>Фильтр по компании</span>
+            <span class="search_block">
+               <input id="notices_company_filter" type="text" placeholder="Деловые линии">
+               <i class="fas fa-search fa-lg icon-search-notices" id="icon-search-notices"></i>
+            </span>
+         </div>
+         <div class="filter_block">
+            <span>Фильтр по непрочитанным уведомлениям</span>
+            <input id="check_notices_filter" type="checkbox">
+            <label for="check_notices_filter"></label>
+         </div>
+      </div>
+
+      <table class="tablesorter" id="table_notices">
+         <thead>
+         <tr>
+            <th></th>
+            <th>Наименование компании</th>
+            <th>Сообщение</th>
+            <th>Дата</th>
+         </tr>
+         </thead>
+         <tbody></tbody>
+      </table>
+
+      <!-- Добавление наименования скидки -->
+      <div class="modal_window_bg" id="modal_window_error">
+         <div class="modal_window">
+            <h4>Сообщение об ошибке</h4>
+
+            <div class="error_block">
+               <span>Наименование компании</span>
+               <span id="company_name"></span>
+            </div>
+            <div class="error_block">
+               <span>Дата генерации сообщения</span>
+               <span id="date_msg"></span>
+            </div>
+            <div class="error_block">
+               <span>Сообщение</span>
+               <span id="message"></span>
+            </div>
+            <div class="error_block">
+               <span>JSON-текст запроса, который привёл к этой ошибке</span>
+               <span id="request_json"></span>
+            </div>
+            <div class="error_block">
+               <span>URL по которому произошла ошибка</span>
+               <span id="request_url"></span>
+            </div>
+
+            <div class="buttons_modal_block">
+               <!--<button class="btn-custom btn-modal-confirm" id="btn_modal_error_confirm"></button>-->
+               <button class="btn-custom btn-modal-cancel" id="btn_modal_error_cancel">Закрыть</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+<script src="libs/jquery/jquery-3.3.1.min.js"></script>
+<script src="libs/autocomplete/autocomplete.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="libs/bootstrap/bootstrap.min.js"></script>
+<script src="js/main.js" defer></script>
+<script src="js/ajax_notices.js" defer></script>
+</body>
+</html>

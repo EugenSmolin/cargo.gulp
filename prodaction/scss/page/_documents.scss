@@ -1,0 +1,30 @@
+.documents {
+   .navDocument {
+      display: flex;
+      align-items: center;
+      margin-bottom: 50px;
+
+      .btn-custom {
+         &-create_doc {
+            margin-left: 50px;
+         }
+      }
+   }
+   .newDocument {
+      &__name {
+         font-family: 'Stolzl', sans-serif;
+      }
+      &__icon {
+         float: right;
+         margin-top: 5px;
+         margin-right: 10px;
+      }
+   }
+   #js-documents_lists {
+      width: 800px;
+
+      thead th {
+         text-align: center;
+      }
+   }
+}

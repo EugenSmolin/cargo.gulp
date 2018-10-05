@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Создание/Редактирование скидки</title>
+   <link rel="stylesheet" href="libs/bootstrap/bootstrap.css">
+   <link rel="stylesheet" href="libs/fontawesome/fontawesome-all.css">
+   <link rel="stylesheet" href="libs/jquery-ui/jquery-ui.min.css">
+   <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- USER NAVIGATION -->
+<div class="header_nav">
+   <div id="js-open_menu"><i class="fas fa-bars"></i></div>
+   <div class="user_block">
+      <span class="user" id="user">
+         <i class="fas fa-user fa-lg icon-user"></i>
+         <span class="user_profile"></span>
+         <i class="fas fa-chevron-down icon-profile"></i>
+      </span>
+
+      <!-- Выпадающий список -->
+      <ul class="user_list">
+         <li>
+            <div class="btn-logout">
+               <i class="fas fa-sign-out-alt icon-logout"></i>
+               Выход
+            </div>
+         </li>
+      </ul>
+   </div>
+</div>
+
+
+<!-- SIDEBAR MENU -->
+<div id="sidebar-wrapper">
+   <div class="admin_text" id="js-close_sidebar">
+      Admin Panel
+   </div>
+   <!-- Menu TABS -->
+   <ul class="sidebar-tabs-header">
+      <li>
+         <a href="index.html" data-active="tab">Основные</a>
+      </li>
+      <li>
+         <a href="companies.html" data-active="tab">Транспорт</a>
+      </li>
+      <li>
+         <a href="clients.html" data-active="tab">Клиент</a>
+      </li>
+      <li>
+         <a href="orders.html" data-active="tab">Заказы</a>
+      </li>
+      <li>
+         <a href="documents.html" data-active="tab">Документы</a>
+      </li>
+      <li>
+         <a href="discounts.html" data-active="tab">Скидки</a>
+      </li>
+      <li>
+         <a href="transfers.html" data-active="tab">Переводы</a>
+      </li>
+      <li>
+         <a href="settings.html" data-active="tab">Настройки</a>
+      </li>
+      <li>
+         <a href="notices.html" data-active="tab">Уведомления</a>
+      </li>
+      <!--<li>
+         <a href="widjet.html">Виджет</a>
+      </li>-->
+   </ul>
+</div>
+
+
+<!-- Main Content -->
+<div class="main-content">
+   <!-- ===== СКИДКA/СТАТИСТИКА ===== -->
+   <div class="discount_statistics">
+
+      <button class="btn-custom" id="btn_back_discounts_statistics">
+         <i class="fas fa-chevron-left fa-sm icon_back_discounts_statistics"></i>
+         назад
+      </button>
+
+      <div class="discounts_info">
+         <div class="discount_settings">
+            <h4>Критерии настройки данных</h4>
+         </div>
+         <div class="discount_block">
+            <span>Наименование</span>
+            <ol id="discount_name"></ol>
+            <i class="far fa-edit fa-lg icon_add" id="add_discount_name"></i>
+         </div>
+         <div class="discount_block">
+            <span>Категория</span>
+            <select id="discount_category"></select>
+         </div>
+         <div class="discount_block">
+            <span>Промокод</span>
+            <ol id="discount_promo_code"></ol>
+            <i class="far fa-edit fa-lg icon_add" id="add_discount_promo"></i>
+         </div>
+         <div class="discount_block">
+            <span>Локация</span>
+            <ol id="discount_location"></ol>
+            <i class="far fa-edit fa-lg icon_add" id="add_discount_location"></i>
+         </div>
+         <div class="discount_block">
+            <span>Транспорт</span>
+            <ol id="discount_company"></ol>
+            <i class="far fa-edit fa-lg icon_add" id="add_discount_company"></i>
+         </div>
+         <div class="discount_block">
+            <span>Период действия <span class="period_date">с</span></span>
+            <input class="datepicker" id="discount_date_start">
+         </div>
+         <div class="discount_block">
+            <span><span class="period_date">по</span></span>
+            <input class="datepicker" id="discount_date_end">
+         </div>
+      </div>
+
+      <div class="discounts_chart">
+         <div class="buttons_block_diagram">
+            <button class="btn-custom" id="discount_today_statistics">Сегодня</button>
+            <button class="btn-custom" id="discount_yesterday_statistics">Вчера</button>
+            <button class="btn-custom" id="discount_week_statistics">Неделя</button>
+            <button class="btn-custom" id="discount_month_statistics">Месяц</button>
+            <button class="btn-custom" id="discount_three_month_statistics">3 месяца</button>
+         </div>
+         <div class="discounts_chart_block">
+            <!-- Добавление canvas -->
+         </div>
+      </div>
+
+      <div class="buttons_block_filter">
+         <button class="btn-custom" id="btn_use_filter">Применить</button>
+         <button class="btn-custom" id="btn_reset_filter">Сбросить фильтр</button>
+      </div>
+
+
+      <!-- Добавление наименования скидки -->
+      <div class="modal_window_bg" id="modal_window_add_discount_name">
+         <div class="modal_window_discount">
+            <h4>Добавить наименование скидок</h4>
+            <div class="search_block_nav">
+               <span class="search_block">
+                  <input id="input_search_discount_name" type="text" placeholder="Поиск...">
+                  <button id="btn_search_discount_name" class="btn-search">Поиск</button>
+               </span>
+            </div>
+
+            <div class="discount_name_list">
+
+               <div class="discount_name_list_false">
+                  <h5>Неактивные скидки
+                     <button class="btn-custom" id="btn_all_discount_name">Добавить все</button>
+                  </h5>
+                  <ul id="sortable_discount_name_false" class="connectedSortable"></ul>
+               </div>
+
+               <div class="discount_name_list_true">
+                  <h5>Активные скидки
+                     <button class="btn-custom" id="btn_delete_all_discount_name">Удалить все</button>
+                  </h5>
+                  <ul id="sortable_discount_name_true" class="connectedSortable"></ul>
+               </div>
+
+            </div>
+
+            <div class="buttons_modal_block">
+               <button class="btn-custom btn-modal-confirm" id="btn_modal_discount_name_confirm">Выбрать</button>
+               <button class="btn-custom btn-modal-cancel" id="btn_modal_discount_name_cancel">Отменить</button>
+            </div>
+         </div>
+      </div>
+
+      <!-- Добавление промокода -->
+      <div class="modal_window_bg" id="modal_window_add_promo">
+         <div class="modal_window_discount">
+            <h4>Добавить промокоды</h4>
+            <div class="search_block_nav">
+               <span class="search_block">
+                  <input id="input_search_promo" type="text" placeholder="Поиск...">
+                  <button id="btn_search_promo" class="btn-search">Поиск</button>
+               </span>
+            </div>
+
+            <div class="promo_list">
+
+               <div class="promo_list_false">
+                  <h5>Неактивные промокоды
+                     <button class="btn-custom" id="btn_all_promo">Добавить все</button>
+                  </h5>
+                  <ul id="sortable_promo_false" class="connectedSortable"></ul>
+               </div>
+
+               <div class="promo_list_true">
+                  <h5>Активные промокоды
+                     <button class="btn-custom" id="btn_delete_all_promo">Удалить все</button>
+                  </h5>
+                  <ul id="sortable_promo_true" class="connectedSortable"></ul>
+               </div>
+
+            </div>
+
+            <div class="buttons_modal_block">
+               <button class="btn-custom btn-modal-confirm" id="btn_modal_promo_confirm">Выбрать</button>
+               <button class="btn-custom btn-modal-cancel" id="btn_modal_promo_cancel">Отменить</button>
+            </div>
+         </div>
+      </div>
+
+      <!-- Добавление локации -->
+      <div class="modal_window_bg" id="modal_window_add_location">
+         <div class="modal_window_discount">
+            <h4>Добавить локации</h4>
+            <div class="search_block_nav">
+               <span class="search_block">
+                  <input id="input_search_location" type="text" placeholder="Поиск...">
+                  <button id="btn_search_location" class="btn-search">Поиск</button>
+               </span>
+            </div>
+
+            <div class="location_list">
+
+               <div class="location_list_false">
+                  <h5>Неактивные локации
+                     <button class="btn-custom" id="btn_all_location">Добавить все</button>
+                  </h5>
+                  <ul id="sortable_location_false" class="connectedSortable"></ul>
+               </div>
+
+               <div class="location_list_true">
+                  <h5>Активные локации
+                     <button class="btn-custom" id="btn_delete_all_location">Удалить все</button>
+                  </h5>
+                  <ul id="sortable_location_true" class="connectedSortable"></ul>
+               </div>
+
+            </div>
+
+            <div class="buttons_modal_block">
+               <button class="btn-custom btn-modal-confirm" id="btn_modal_location_confirm">Выбрать</button>
+               <button class="btn-custom btn-modal-cancel" id="btn_modal_location_cancel">Отменить</button>
+            </div>
+         </div>
+      </div>
+
+      <!-- Добавление компании -->
+      <div class="modal_window_bg" id="modal_window_add_company">
+         <div class="modal_window_discount">
+            <h4>Добавить транспортные компании</h4>
+            <div class="search_block_nav">
+               <span class="search_block">
+                  <input id="input_search_company" type="text" placeholder="Поиск...">
+                  <button id="btn_search_company" class="btn-search">Поиск</button>
+               </span>
+            </div>
+
+            <div class="company_list">
+
+               <div class="company_list_false">
+                  <h5>Неактивные компании
+                     <button class="btn-custom" id="btn_all_company">Добавить все</button>
+                  </h5>
+                  <ul id="sortable_company_false" class="connectedSortable"></ul>
+               </div>
+
+               <div class="company_list_true">
+                  <h5>Активные компании
+                     <button class="btn-custom" id="btn_delete_all_company">Удалить все</button>
+                  </h5>
+                  <ul id="sortable_company_true" class="connectedSortable"></ul>
+               </div>
+
+            </div>
+
+            <div class="buttons_modal_block">
+               <button class="btn-custom btn-modal-confirm" id="btn_modal_company_confirm">Выбрать</button>
+               <button class="btn-custom btn-modal-cancel" id="btn_modal_company_cancel">Отменить</button>
+            </div>
+         </div>
+      </div>
+
+   </div>
+</div>
+
+
+<script src="libs/jquery/jquery-3.3.1.min.js"></script>
+<script src="libs/jquery-ui/jquery-ui.min.js"></script>
+<script src="libs/datepicker/datepicker-ru.js"></script>
+<script src="libs/jquery-mask/jquery.mask.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="libs/chart/chart.min.js"></script>
+<script src="libs/bootstrap/bootstrap.min.js"></script>
+<script src="js/main.js" defer></script>
+<script src="js/ajax_discount_statistics.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+.discounts {
+   .discounts_nav {
+      .btn-custom {
+         margin-right: 20px;
+      }
+      .search_block {
+         position: relative;
+         display: block;
+         width: 269px;
+         height: 35px;
+         float: right;
+         margin-bottom: 15px;
+
+         input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 35px;
+            padding: 5px 10px;
+            border: 1px solid $grey;
+         }
+         .btn-search {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 70px;
+            height: 35px;
+            cursor: pointer;
+            text-align: center;
+            border: 1px solid $mainColor;
+            font-weight: bold;
+            color: $grey;
+            background: linear-gradient(to top, $green, $lightGreen);
+
+            &:hover,
+            &:focus {
+               -webkit-box-shadow: inset 0 0 10px $grey;
+               -moz-box-shadow: inset 0 0 10px $grey;
+               box-shadow: inset 0 0 10px $grey;
+               background: linear-gradient(to top, $blue, #FFF);
+            }
+         }
+         #search_warning {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            display: none;
+            border: 2px solid $red;
+            color: $red;
+            padding: 10px;
+            background-color: #FFF;
+            font-weight: bold;
+            line-height: 18px;
+            z-index: 99;
+
+            &:before {
+               content: '';
+               width: 15px;
+               height: 15px;
+               background-color: #FFF;
+               border-left: 2px solid $red;
+               border-top: 2px solid $red;
+               -webkit-transform: rotate(45deg);
+               -moz-transform: rotate(45deg);
+               -ms-transform: rotate(45deg);
+               -o-transform: rotate(45deg);
+               transform: rotate(45deg);
+               position: absolute;
+               top: -9px;
+               left: calc(50% - 10px);
+            }
+         }
+      }
+   }
+   table#table_discounts {
+      th:first-child,
+      td:first-child {
+         padding: 5px;
+         width: 50px;
+         text-align: center;
+      }
+      th:last-child,
+      td:last-child {
+         width: 300px;
+
+         .countries_block {
+            max-height: 50px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+         }
+      }
+   }
+}

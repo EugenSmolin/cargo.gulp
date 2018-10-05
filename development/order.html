@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Детальная информация о заказе</title>
+   <link rel="stylesheet" href="libs/bootstrap/bootstrap.css">
+   <link rel="stylesheet" href="libs/fontawesome/fontawesome-all.css">
+   <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- USER NAVIGATION -->
+//= template/user_nav.html
+
+
+<!-- SIDEBAR MENU -->
+//= template/sidebar.html
+
+
+<!-- Main Content -->
+<div class="main-content">
+   <!-- ===== ЗАКАЗЫ/ЭКРАН ===== -->
+   <div class="orders_screen">
+
+      <div class="warning_block">
+         <span class="warning_window_true">Сведения заказа сохранены!</span>
+         <span class="warning_window_false">Проверьте правильность заполнения сведений!</span>
+      </div>
+
+      <button id="btn-back-list-orders" class="btn-custom">
+         <i class="fas fa-chevron-left fa-sm icon-back-list-orders"></i>
+         <span>назад к списку</span>
+      </button>
+
+      <div class="order_num">
+         Заказ №
+         <span id="order_num"></span>
+         от
+         <span id="order_date"></span>
+      </div>
+
+      <table class="table_cargo_from">
+         <tbody>
+         <tr>
+            <td class="cargo_from">
+               <div id="cargo_from"></div>
+               <div id="address_from"></div>
+            </td>
+            <td>
+               <img class="arrow_from" src="images/arrow_from.png" alt="Arrow">
+            </td>
+            <td class="cargo_to">
+               <div id="cargo_to"></div>
+               <div id="address_to"></div>
+            </td>
+         </tr>
+         <tr>
+            <td class="delivery_date">
+               Отправление
+               <span id="desired_date"></span>
+            </td>
+            <td></td>
+            <td class="desired_date">
+               Прибытие
+               <span id="delivery_date"></span>
+            </td>
+         </tr>
+         </tbody>
+      </table>
+
+      <div>
+         <div class="sender">
+            <h5>Отправитель</h5>
+         </div>
+         <div class="recepient">
+            <h5>Получатель</h5>
+         </div>
+      </div>
+
+      <div class="info_cargo_block">
+         <div>
+            <span class="head_info_cargo">Название груза</span>
+            <span class="body_info_cargo" id="cargo_name"></span>
+         </div>
+         <div>
+            <span class="head_info_cargo">Класс опасности</span>
+            <select class="body_info_cargo" id="order_danger"></select>
+         </div>
+         <div>
+            <span class="head_info_cargo">Температурный режим</span>
+            <select class="body_info_cargo" id="order_temperature"></select>
+         </div>
+         <div>
+            <span class="head_info_cargo">Способы перевозки</span>
+            <span class="body_info_cargo" id="cargo_method"></span>
+         </div>
+         <div>
+            <span class="head_info_cargo">Длина</span>
+            <span class="body_info_cargo body_info_cargo_elem" id="cargo_length"></span>
+         </div>
+         <div>
+            <span class="head_info_cargo">Ширина</span>
+            <span class="body_info_cargo body_info_cargo_elem" id="cargo_width"></span>
+         </div>
+         <div>
+            <span class="head_info_cargo">Высота</span>
+            <span class="body_info_cargo body_info_cargo_elem" id="cargo_height"></span>
+         </div>
+         <div>
+            <span class="head_info_cargo">Объём</span>
+            <span class="body_info_cargo body_info_cargo_elem">
+                  <span id="cargo_vol"></span>
+                  <span id="cargo_vol_unit"></span>
+               </span>
+         </div>
+         <div>
+            <span class="head_info_cargo">Вес</span>
+            <span class="body_info_cargo body_info_cargo_elem">
+                  <span id="cargo_weight"></span>
+                  <span id="cargo_weight_unit"></span>
+               </span>
+         </div>
+         <div>
+            <span class="head_info_cargo">Ценность, RUB</span>
+            <span class="body_info_cargo" id="cargo_value"></span>
+         </div>
+         <div>
+            <span class="head_info_cargo">Стоимость доставки, RUB</span>
+            <span class="body_info_cargo" id="cargo_price"></span>
+         </div>
+         <div>
+            <span class="head_info_cargo">Способ оплаты</span>
+            <select class="body_info_cargo" id="payment_type"></select>
+         </div>
+         <div>
+            <span class="head_info_cargo">Плательщик</span>
+            <span class="body_info_cargo" id="payer_type"></span>
+         </div>
+      </div>
+
+      <div class="costPayment">
+         <div class="paymentBlock">
+            <span class="paymentBlock__name">Стоимость заказа</span>
+            <input class="paymentBlock__input" id="cost" type="text" maxlength="10">
+         </div>
+         <div class="paymentBlock">
+            <span class="paymentBlock__name">Реальная стоимость</span>
+            <input class="paymentBlock__input" id="real_cost" type="text" maxlength="10">
+         </div>
+         <div class="paymentBlock">
+            <span class="paymentBlock__name">Оплачено</span>
+            <input class="paymentBlock__input" id="paid_cost" type="text" maxlength="10">
+         </div>
+         <div class="paymentBlock">
+            <span class="paymentBlock__name">Задолженность</span>
+            <input class="paymentBlock__input" id="paid_arrear" type="text" maxlength="10">
+         </div>
+      </div>
+
+      <div class="statusBlock">
+         <div class="status">
+            <span class="status__name">
+               <span class="name_desc">Статус заказа</span>
+               <span class="status__icon" id="status_check"></span>
+            </span>
+            <select class="status__select" id="status_order"></select>
+         </div>
+         <div class="status">
+            <span class="status__name">
+               <span class="name_desc">Статус оплаты</span>
+               <span class="status__icon" id="status_payment_check"></span>
+            </span>
+            <select class="status__select" id="status_payment"></select>
+         </div>
+         <div class="status">
+            <span class="status__name">
+               <span class="name_desc">Тип валюты</span>
+            </span>
+            <select class="status__select" id="currency"></select>
+         </div>
+      </div>
+
+      <div class="buttons_block">
+         <button class="btn-custom" id="btn-document-order">Документы заказа</button>
+         <button class="btn-custom" id="btn-save-order">Сохранить</button>
+      </div>
+
+      <div class="modal_window_bg" id="modal_window_bg">
+         <div class="modal_window">
+            <h4>Сохранить изменения?</h4>
+            <div class="buttons_modal_block">
+               <button class="btn-custom btn-modal-confirm" id="btn-modal-confirm">Да</button>
+               <button class="btn-custom btn-modal-cancel" id="btn-modal-cancel">Нет</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+<script src="libs/jquery/jquery-3.3.1.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="libs/bootstrap/bootstrap.min.js"></script>
+<script src="js/main.js" defer></script>
+<script src="js/ajax_order.js" defer></script>
+</body>
+</html>

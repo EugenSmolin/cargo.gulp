@@ -1,0 +1,380 @@
+@import "_color.scss"; /* === COLOR === */
+
+@import "_fonts.scss"; /* === FONTS === */
+
+/* ===== ОБЩИЕ НАСТРОЙКИ ===== */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   font-family: 'Stolzl-Light', sans-serif;
+   font-size: 14px;
+   line-height: 24px;
+   color: $mainColor;
+   background-color: $bgBody;
+}
+
+h1, h2, h3, h4, h5, h6 {
+   font-family: 'Stolzl', sans-serif;
+}
+
+a {
+   color: $mainColor;
+
+   &:hover {
+      text-decoration: none;
+      color: $green;
+   }
+}
+
+.btn-custom {
+   padding: 5px 20px;
+   cursor: pointer;
+   text-align: center;
+   border: 1px solid $grey;
+   font-family: "Stolzl", sans-serif;
+   font-weight: bold;
+   font-size: 14px;
+   color: $mainColor;
+   background: linear-gradient(to top, $green, $lightGreen);
+   -webkit-box-shadow: 0 0 5px $grey;
+   -moz-box-shadow: 0 0 5px $grey;
+   box-shadow: 0 0 5px $grey;
+
+   &:hover,
+   &:focus {
+      -webkit-box-shadow: inset 0 0 10px $grey;
+      -moz-box-shadow: inset 0 0 10px $grey;
+      box-shadow: inset 0 0 10px $grey;
+      background: linear-gradient(to top, $blue, #FFF);
+      outline: none;
+   }
+}
+
+.btnBack {
+   @extend .btn-custom;
+   display: block;
+   padding: 5px 15px;
+   margin-bottom: 50px;
+
+   &__icon {
+      display: inline-block;
+      margin-right: 10px;
+   }
+}
+
+.check_mark {
+   background-image: url('../images/check_mark.png');
+   -webkit-background-size: cover;
+   background-size: cover;
+   width: 25px;
+   height: 25px;
+   margin-right: 10px;
+   display: block;
+}
+
+.check_warn {
+   background-image: url('../images/check_warn.png');
+   -webkit-background-size: cover;
+   background-size: cover;
+   width: 25px;
+   height: 25px;
+   margin-right: 10px;
+   display: block;
+}
+
+.check_waiting,
+.check_in_working,
+.check_executed,
+.check_rejected {
+   position: relative;
+   top: 4px;
+   width: 20px;
+   height: 20px;
+   margin-right: 5px;
+   display: inline-block;
+}
+
+.check_waiting {
+   background-image: url('../images/waiting.png');
+   -webkit-background-size: cover;
+   background-size: cover;
+}
+
+.check_in_working {
+   background-image: url('../images/in_working.png');
+   -webkit-background-size: cover;
+   background-size: cover;
+}
+
+.check_executed {
+   background-image: url('../images/executed.png');
+   -webkit-background-size: cover;
+   background-size: cover;
+}
+
+.check_rejected {
+   background-image: url('../images/rejected.png');
+   -webkit-background-size: cover;
+   background-size: cover;
+}
+
+// === PLACEHOLDER === //
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+   color: $lightGrey;
+   font-style: italic;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+   color: $lightGrey;
+   font-style: italic;
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+   color: $lightGrey;
+   font-style: italic;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: $lightGrey;
+   font-style: italic;
+}
+
+// === INPUT CHECKBOX === //
+input[type=checkbox],
+input[type=radio] {
+   display: none;
+}
+
+input[type=checkbox] + label.head:before {
+   margin-left: 15px;
+}
+
+input[type=checkbox] + label:before {
+   content: "\2713";
+   color: transparent;
+   background-color: #FFF;
+   display: inline-block;
+   border: 1px solid $lightGrey;
+   font-size: 20px;
+   line-height: 20px;
+   height: 23px;
+   width: 23px;
+   text-align: center;
+   vertical-align: middle;
+   cursor: pointer;
+}
+
+input[type=checkbox]:checked + label:before {
+   color: #FFF;
+   background: linear-gradient(to top, $darkGreen, $lightGreen);
+   border: 1px solid transparent;
+   border-image: linear-gradient(to top, $darkGreen, $lightGreen);
+   border-image-slice: 1;
+   -webkit-box-shadow: 0 0 2px $grey;
+   -moz-box-shadow: 0 0 2px $grey;
+   box-shadow: 0 0 2px $grey;
+}
+
+input:focus,
+textarea:focus {
+   outline: 2px solid $green;
+   background-color: #FFF !important;
+}
+
+button:disabled,
+input:disabled {
+   background: linear-gradient(to top, $lightGrey, #FFF);
+   cursor: default;
+}
+
+label {
+   margin: 0;
+   padding: 0;
+}
+
+select {
+   position: relative;
+   display: inline-block;
+   height: 35px;
+   background: linear-gradient(to top, $lightGrey, #FFF);
+   border: 1px solid $lightGrey;
+   padding: 5px 10px;
+   font-size: 14px;
+   -webkit-box-shadow: 1px 1px 1px #999;
+   -moz-box-shadow: 1px 1px 1px #999;
+   box-shadow: 1px 1px 1px #999;
+
+   &:focus {
+      outline: none;
+   }
+}
+
+.endSession,
+.server_error {
+   position: fixed;
+   left: 60%;
+   -webkit-transform: translateX(-50%);
+   -moz-transform: translateX(-50%);
+   -ms-transform: translateX(-50%);
+   -o-transform: translateX(-50%);
+   transform: translateX(-50%);
+   display: none;
+   width: 500px;
+   padding: 15px;
+   margin: 0 auto 30px;
+   border: 1px solid $red;
+   background-color: $lightRed;
+   font-size: 20px;
+   font-weight: 600;
+   text-align: center;
+   -webkit-box-shadow: 1px 2px 5px $grey;
+   -moz-box-shadow: 1px 2px 5px $grey;
+   box-shadow: 1px 2px 5px $grey;
+   z-index: 999;
+}
+
+.error_valid {
+   border: 1px solid $red !important;
+   background-color: $lightRed !important;
+}
+
+.user_delete,
+.discount_delete {
+   width: 500px;
+   padding: 15px;
+   margin: 0 auto 30px;
+   border: 1px solid $green;
+   background-color: $lightGreen;
+   font-size: 20px;
+   font-weight: 600;
+   text-align: center;
+   -webkit-box-shadow: 1px 2px 5px $grey;
+   -moz-box-shadow: 1px 2px 5px $grey;
+   box-shadow: 1px 2px 5px $grey;
+}
+
+.searchBlock {
+   position: relative;
+   display: inline-block;
+   width: 269px;
+   height: 35px;
+
+   &__input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 35px;
+      padding: 5px 10px;
+      border: 1px solid $grey;
+   }
+   &__btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 70px;
+      height: 35px;
+      line-height: 34px;
+      cursor: pointer;
+      text-align: center;
+      border: 1px solid $mainColor;
+      font-weight: bold;
+      color: $grey;
+      background: linear-gradient(to top, $green, $lightGreen);
+
+      &:hover,
+      &:focus {
+         -webkit-box-shadow: inset 0 0 10px $grey;
+         -moz-box-shadow: inset 0 0 10px $grey;
+         box-shadow: inset 0 0 10px $grey;
+         background: linear-gradient(to top, $blue, #FFF);
+      }
+   }
+}
+
+/* === toggle class === */
+.icon-profile_rotate {
+   -webkit-transform: rotate(180deg);
+   -moz-transform: rotate(180deg);
+   -ms-transform: rotate(180deg);
+   -o-transform: rotate(180deg);
+   transform: rotate(180deg);
+}
+
+@import "_autocomplete.scss"; /* === AUTOCOMPLETE === */
+
+@import "_datepicker.scss"; /* === DATEPICKER === */
+
+@import "_ui_list.scss"; /* === UI LIST === */
+
+@import "_preloader.scss"; /* === PRELOADER === */
+
+@import "_tablesorter.scss"; /* === TABLESORTER === */
+
+@import "_modal_window.scss"; /* === MODAL WINDOW === */
+
+@import "_user_nav.scss"; /* === USER BLOCK === */
+
+@import "_sidebar_menu.scss"; /* === SIDEBAR WRAPPER === */
+
+/* === MAIN CONTENT == */
+.main-content {
+   margin-left: 300px;
+   margin-top: 65px;
+   padding: 30px 50px;
+   -webkit-transition: all 0.3s linear;
+   -moz-transition: all 0.3s linear;
+   -ms-transition: all 0.3s linear;
+   -o-transition: all 0.3s linear;
+   transition: all 0.3s linear;
+
+   @import "page/_main_page.scss"; /* === ОСНОВНАЯ === */
+
+   @import "page/_companies.scss"; /* ===== ТРАНСПОРТ ===== */
+
+   @import "page/_company.scss"; /* ===== ТРАНСПОРТ/ЭКРАН ===== */
+   
+   @import "page/_clients.scss"; /* ===== КЛИЕНТ ===== */
+   
+   @import "page/_client.scss"; /* ===== КЛИЕНТ/ЭКРАН ===== */
+   
+   @import "page/_orders.scss"; /* ===== ЗАКАЗЫ ===== */
+   
+   @import "page/_order.scss"; /* ===== ЗАКАЗЫ/ЭКРАН ===== */
+   
+   @import "page/_documents.scss"; /* ===== ДОКУМЕНТЫ/СПИСОК ===== */
+   
+   @import "page/_document.scss"; /* ===== СОЗДАНИЕ/РЕДАКТИРОВАНИЕ ДОКУМЕНТА ===== */
+   
+   @import "page/_document_info.scss"; /* ===== ИНФОРМАЦИЯ О ДОКУМЕНТЕ ===== */
+   
+   @import "page/_discounts.scss"; /* ===== СКИДКИ ===== */
+   
+   @import "page/_discount.scss"; /* ===== СКИДКА/РЕДАКТИРОВАНИЕ ===== */
+   
+   @import "page/_discount_statistics.scss"; /* ===== СКИДКА/СТАТИСТИКА ===== */
+
+   /* ===== ЗАКАЗЫ ===== */
+
+   /* ===== НАСТРОЙКИ ===== */
+
+   @import "page/_notices.scss"; /* ===== УВЕДОМЛЕНИЯ ===== */
+}
+
+@import "_login.scss"; /* === LOGIN PAGE === */
+
+
+
+
+
+
+
+
+
+
+
+

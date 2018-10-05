@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Информация о документе</title>
+   <link rel="stylesheet" href="libs/bootstrap/bootstrap.css">
+   <link rel="stylesheet" href="libs/fontawesome/fontawesome-all.css">
+   <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- USER NAVIGATION -->
+<div class="header_nav">
+   <div id="js-open_menu"><i class="fas fa-bars"></i></div>
+   <div class="user_block">
+      <span class="user" id="user">
+         <i class="fas fa-user fa-lg icon-user"></i>
+         <span class="user_profile"></span>
+         <i class="fas fa-chevron-down icon-profile"></i>
+      </span>
+
+      <!-- Выпадающий список -->
+      <ul class="user_list">
+         <li>
+            <div class="btn-logout">
+               <i class="fas fa-sign-out-alt icon-logout"></i>
+               Выход
+            </div>
+         </li>
+      </ul>
+   </div>
+</div>
+
+
+<!-- SIDEBAR MENU -->
+<div id="sidebar-wrapper">
+   <div class="admin_text" id="js-close_sidebar">
+      Admin Panel
+   </div>
+   <!-- Menu TABS -->
+   <ul class="sidebar-tabs-header">
+      <li>
+         <a href="index.html" data-active="tab">Основные</a>
+      </li>
+      <li>
+         <a href="companies.html" data-active="tab">Транспорт</a>
+      </li>
+      <li>
+         <a href="clients.html" data-active="tab">Клиент</a>
+      </li>
+      <li>
+         <a href="orders.html" data-active="tab">Заказы</a>
+      </li>
+      <li>
+         <a href="documents.html" data-active="tab">Документы</a>
+      </li>
+      <li>
+         <a href="discounts.html" data-active="tab">Скидки</a>
+      </li>
+      <li>
+         <a href="transfers.html" data-active="tab">Переводы</a>
+      </li>
+      <li>
+         <a href="settings.html" data-active="tab">Настройки</a>
+      </li>
+      <li>
+         <a href="notices.html" data-active="tab">Уведомления</a>
+      </li>
+      <!--<li>
+         <a href="widjet.html">Виджет</a>
+      </li>-->
+   </ul>
+</div>
+
+
+<!-- Main Content -->
+<div class="main-content">
+   <!-- ===== ИНФОРМАЦИЯ О ДОКУМЕНТЕ ===== -->
+   <div class="document_info">
+      <button class="btnBack" id="js-btn_back">
+         <i class="fas fa-chevron-left fa-sm btnBack__icon"></i>
+         <span class="btnBack__name">назад</span>
+      </button>
+
+      <div class="document_form">
+
+         <h3>Поручение №154 «10» Сентябрь 2018г.</h3>
+         <div class="order_str">на оформление заказа</div>
+         <div class="order_block">
+            <h6>Заказчик:</h6>
+            <span>Test, Общество с ограниченной ответственностью тел.: 34334444444, email: andrii.sokoliuk@gmail.com, Санкт-Петербург, Ленинский проспект, 2, д. 12</span>
+         </div>
+         <div class="order_str">поручает</div>
+         <div class="order_block">
+            <h6>Оператору транспортного агрегатора Cargo.Guru:</h6>
+            <span>«МИВ» ООО, тел. +79191233398 info@cargo.guru, адрес: 454006, Челябинск, пр.Ленина, 49-В, оф. 2</span>
+         </div>
+         <div class="order_str">оформить заказ на доставку отправления следующей</div>
+         <div class="order_block">
+            <h6>Транспортной (экспедиторской, курьерской) компанией:</h6>
+            <span>Деловые Линии, тел.: 8(800)1008000, email: info@cargo.guru</span>
+         </div>
+
+         <div class="shipping_section shipping_section-top">
+            <div class="shipping_block">
+               <h6>Откуда</h6>
+               <div>
+                  <span class="name">адрес:</span>
+                  <span>Москва, ул Лениногорская, д. 1, строение. 2, кв.(оф.) 3</span>
+               </div>
+               <div>
+                  <span class="name">способ отправки:</span>
+                  <span>Забор с адреса грузоотправителя</span>
+               </div>
+            </div>
+            <div class="shipping_block">
+               <h6>Куда</h6>
+               <div>
+                  <span class="name">адрес:</span>
+                  <span></span>
+               </div>
+               <div>
+                  <span class="name">способ доставки:</span>
+                  <span></span>
+               </div>
+            </div>
+         </div>
+         <div class="shipping_section shipping_section-bottom">
+            <div class="shipping_block">
+               <h6>Отправитель</h6>
+               <div>
+                  <span class="name">наименование:</span>
+                  <span>ООО «Test»</span>
+               </div>
+               <div>
+                  <span class="name">телефон:</span>
+                  <span>+3 433 444 44 44</span>
+               </div>
+               <div>
+                  <span class="name">e-mail:</span>
+                  <span>andrii.sokoliuk@gmail.com</span>
+               </div>
+               <div>
+                  <span class="name">инн:</span>
+                  <span></span>
+               </div>
+               <div>
+                  <span class="name">контактное лицо:</span>
+                  <span>Имя Фамилия</span>
+               </div>
+               <div>
+                  <span class="name">дата отправки:</span>
+                  <span>10.09.2018</span>
+               </div>
+            </div>
+            <div class="shipping_block">
+               <h6>Получатель</h6>
+               <div>
+                  <span class="name">наименование:</span>
+                  <span></span>
+               </div>
+               <div>
+                  <span class="name">телефон:</span>
+                  <span></span>
+               </div>
+               <div>
+                  <span class="name">e-mail:</span>
+                  <span></span>
+               </div>
+               <div>
+                  <span class="name">инн:</span>
+                  <span></span>
+               </div>
+               <div>
+                  <span class="name">контактное лицо:</span>
+                  <span></span>
+               </div>
+               <div>
+                  <span class="name">дата получения:</span>
+                  <span></span>
+               </div>
+            </div>
+         </div>
+
+         <h5>Груз</h5>
+         <table class="table_cargo">
+            <thead>
+            <tr>
+               <th>Место</th>
+               <th></th>
+               <th>Наименование</th>
+               <th>Вес (кг)</th>
+               <th>Объем (м<sup>3</sup>)</th>
+               <th>Длина (м)</th>
+               <th>Ширина (м)</th>
+               <th>Высота (м)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+               <td rowspan="2">1</td>
+               <td>По заявке</td>
+               <td>Test</td>
+               <td>2.00</td>
+               <td>0.10</td>
+               <td>0.36</td>
+               <td>0.30</td>
+               <td>0.60</td>
+            </tr>
+            <tr>
+               <td>По факту</td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+            </tr>
+            </tbody>
+         </table>
+         <table class="table_cargo">
+            <thead>
+            <tr>
+               <th>Температурный режим</th>
+               <th>Класс опасности</th>
+               <th>Упаковка</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+               <td>Не задан</td>
+               <td>Не задан</td>
+               <td></td>
+            </tr>
+            </tbody>
+         </table>
+
+         <h5>Дополнительные услуги</h5>
+         <table class="additional_services">
+            <tbody>
+            <tr>
+               <td>
+                  <h6>При отправке</h6>
+                  <div>
+                     <span class="services_name">Жесткая упаковка - </span>
+                     <span>700 руб.</span>
+                  </div>
+                  <div>
+                     <span class="services_name">Жесткий короб - </span>
+                     <span>0 руб.</span>
+                  </div>
+                  <div>
+                     <span class="services_name">Картонных коробок 2 шт - </span>
+                     <span>200 руб.</span>
+                  </div>
+                  <div>
+                     <span class="services_name">Дополнительная упаковка - </span>
+                     <span>100 руб.</span>
+                  </div>
+                  <div>
+                     <span class="services_name">Воздушно-пузырьковая плёнка - </span>
+                     <span>150 руб.</span>
+                  </div>
+                  <div>
+                     <span class="services_name">Паллетный борт (только до терминала-получателя) - </span>
+                     <span>300 руб.</span>
+                  </div>
+               </td>
+               <td>
+                  <h6>При получении</h6>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <h6>Плательщик</h6>
+                  <div>Заказчик</div>
+               </td>
+               <td>
+                  <h6>Способы оплаты</h6>
+                  <div>Банковская карта VISA, MasterCard, МИР</div>
+               </td>
+            </tr>
+            </tbody>
+         </table>
+
+         <h4 class="total_price">ИТОГО СТОИМОСТЬ ПЕРЕВОЗКИ .................................................... 2 715,30 руб</h4>
+
+         <div class="conditions">Существенные условия:</div>
+         <ul class="conditions_list">
+            <li>
+               Оформление настоящего поручения, выражает намерение Заказчика поручить Оператору оформить заказ на
+               перевозку (доставку) отправления определенной транспортной компанией по указанному маршруту и вручить его
+               Получателю.
+            </li>
+            <li>
+               Оператор принимает на себя обязательство оказать услуги по оформлению от имени Заказчика заявки на
+               перевозку в порядке, определенном Правилами оказания услуг Cargo.Guru
+            </li>
+            <li>
+               Прием отравления Перевозчиком в целях доставки является заключением между Заказчиком и Перевозчиком
+               договора транспортной экспедиции на условиях, согласованных сторонами согласно настоящего Поручения,
+               документов, подтверждающих прием отправления для доставки
+            </li>
+            <li>
+               Заказчик гарантирует оплату настоящей заявки не зависимо от способа и субъекта оплаты.
+            </li>
+            <li>
+               Заказчик гарантирует правильность заполненных сведений и данных в настоящей заявке. В случае, если сведения в заявке
+               содержат ошибку, неточность, то Заказчик несет ответственность за неисполнение либо ненадлежащее исполнение заявки в
+               связи с предоставление неверных (неточных) сведений как перед всеми участникам исполнения заявки, так и перед третьими лицами.
+            </li>
+            <li>
+               Заказчик ознакомился с перечнем запрещенных и ограниченны к приему, выдаче и перевозке веществ, утвержденных Cargo.Guru
+               (www.cargo.guru) и выбранным им Перевозчиком. Ответственность за неисполнение либо ненадлежащее исполнение настоящей
+               заявки в связи с передачей для оказания услугу веществ, включенных в данный список, несет Заказчик.
+            </li>
+            <li>
+               Заказчик обязан проинформировать Отправителя и Получателя об оформленной доставке и ее условиях.
+            </li>
+            <li>
+               Если Получатель своевременно не получил отправление в пункте выдачи, то каждый день хранения отправления оплачивается по
+               тарифам, действующим в транспортной компании в месте выдачи. В случае, если получатель не получит Отправление по истечение
+               15 (Пятнадцать) календарных дней, то Отправление подлежит возврату Отправителю.
+            </li>
+         </ul>
+         <span class="signature_block">
+            <h6>Заказчик</h6>
+            <div class="signature_line"></div>
+         </span>
+         <span class="signature_block">
+            <h6>Оператор</h6>
+            <div class="signature_line"></div>
+         </span>
+
+      </div>
+   </div>
+</div>
+
+
+<script src="libs/jquery/jquery-3.3.1.min.js"></script>
+<script src="libs/bootstrap/bootstrap.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/main.js" defer></script>
+<script src="js/ajax_document_info.js" defer></script>
+</body>
+</html>
