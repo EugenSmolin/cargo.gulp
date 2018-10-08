@@ -4,4 +4,4 @@
 
 Выгрузить папку "node_modules" в проект - npm install
 
-Запустить "gulp" - gulp start
+Запустить "gulp" на сервере - gulp start

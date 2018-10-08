@@ -19,21 +19,21 @@ const uglify = require('gulp-uglify'); // минифицирует js
 
 // === ПУТИ
 const path = {
-	prodaction: { //Тут мы укажем куда складывать готовые после сборки файлы
+	prodaction: { // Складываем готовые файлы после сборки
       html: 'prodaction/',
       js: 'prodaction/js/',
       css: 'prodaction/css/',
       img: 'prodaction/images/',
       fonts: 'prodaction/fonts/'
   },
-  development: { //Пути откуда брать исходники
-      html: 'development/*.html',
+  development: { // Пути откуда брать исходники
+      html: 'development/**/*.html',
       js: 'development/js/*.js',
       scss: 'development/scss/*.scss',
       img: 'development/images/**/*.*',
       fonts: 'development/fonts/**/*.*'
   },
-  watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
+  watch: { // Указываем, за изменением каких файлов мы хотим наблюдать
       html: 'development/**/*.html',
       js: 'development/js/**/*.js',
       scss: 'development/scss/**/*.scss',
@@ -82,16 +82,16 @@ gulp.task('html', function () {
 });
 
 // === IMG
-// gulp.task('image:prodaction', function () {
-//   return gulp.src(path.development.img) 
-//     .pipe(imagemin({ 
-//         progressive: true,
-//         svgoPlugins: [{removeViewBox: false}],
-//         use: [pngquant()],
-//         interlaced: true
-//     }))
-//     .pipe(gulp.dest(path.prodaction.img));
-// });
+gulp.task('image', function () {
+  return gulp.src(path.development.img) 
+    .pipe(imagemin({ 
+        progressive: true,
+        svgoPlugins: [{removeViewBox: false}],
+        use: [pngquant()],
+        interlaced: true
+    }))
+    .pipe(gulp.dest(path.prodaction.img));
+});
 
 // === CLEAN
 gulp.task('clean', function() {
@@ -106,8 +106,8 @@ gulp.task('assets', function() {
 		.pipe(gulp.dest('prodaction/'));
 });
 
-// === prodaction
-gulp.task('prodaction', gulp.series('clean', gulp.parallel('scss', 'assets'), 'html'));
+// === PRODACTION
+gulp.task('prodaction', gulp.series('clean', gulp.parallel('scss', 'assets'), ['html', 'image']));
 
 // === WATCH
 gulp.task('watch', function() {

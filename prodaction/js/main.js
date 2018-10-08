@@ -19,20 +19,16 @@ $('.user_profile').html($userName);
 
 // === Активность вкладки === //
 $(function() { 
-  //for bootstrap 3 use 'shown.bs.tab' instead of 'shown' in the next line
   $('a[data-active="tab"]').on('click', function (e) {
     localStorage.setItem('lastTab', $(e.target).attr('href'));
   });
 
-  //go to the latest tab, if it exists:
   var lastTab = localStorage.getItem('lastTab');
-  console.log(lastTab);
-
-  if (lastTab == 'companies.html') {
-    // $('a[href="' + lastTab + '"]').click();
-    $(this).css('color', 'red');
-    console.log($(this));
-    // сделать цикл на элементы
+  var arrList = $('.li_active');
+  for (var i = 0; i < arrList.length; i++) {
+      if ($(arrList[i]).attr('href') == lastTab) {
+        $(arrList[i]).addClass('active');
+      }
   }
 });
 
