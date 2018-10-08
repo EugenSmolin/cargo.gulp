@@ -112,7 +112,7 @@ gulp.task('prodaction', gulp.series('clean', gulp.parallel('scss', 'assets'), ['
 // === WATCH
 gulp.task('watch', function() {
 	gulp.watch(path.development.scss, gulp.series('scss'));
-	// gulp.watch(path.development.html, gulp.series('html'));
+	gulp.watch(path.development.html, gulp.series('html'));
 	gulp.watch('development/**/*.*', gulp.series('assets'));
 });
 
