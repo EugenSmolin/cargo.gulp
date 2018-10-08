@@ -75,7 +75,7 @@ gulp.task('scss', function() {
 
 // === HTML
 gulp.task('html', function () {
-  return gulp.src(path.development.html)
+  return gulp.src(path.development.html, {since: gulp.lastRun('html')})
     .pipe(rigger())
     .pipe(gulp.dest(path.prodaction.html));
     // .pipe(reload({stream: true})); // И перезагрузим наш сервер для обновлений
