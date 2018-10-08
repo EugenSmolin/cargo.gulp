@@ -75,7 +75,7 @@ gulp.task('scss', function() {
 
 // === HTML
 gulp.task('html', function () {
-  return gulp.src(path.development.html, {since: gulp.lastRun('html')})
+  return gulp.src(path.development.html)
     .pipe(rigger())
     .pipe(gulp.dest(path.prodaction.html));
     // .pipe(reload({stream: true})); // И перезагрузим наш сервер для обновлений
@@ -112,7 +112,7 @@ gulp.task('prodaction', gulp.series('clean', gulp.parallel('scss', 'assets'), ['
 // === WATCH
 gulp.task('watch', function() {
 	gulp.watch(path.development.scss, gulp.series('scss'));
-	gulp.watch(path.development.html, gulp.series('html'));
+	// gulp.watch(path.development.html, gulp.series('html'));
 	gulp.watch('development/**/*.*', gulp.series('assets'));
 });
 
