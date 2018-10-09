@@ -2,6 +2,7 @@
 if (!$.cookie('admin_session')) {
     var $endSession = '<div class="endSession">Авторизируйтесь снова!</div>';
     $('.main-content').before($endSession);
+    // localStorage.removeItem('lastTab');
     window.location.href = 'login.html';
 }
 
@@ -58,6 +59,7 @@ $('body').on('click', '.btn-logout', function () {
         },
         success: function (data) {
             if (data.status == "good") {
+                // localStorage.removeItem('lastTab');
                 window.location.href = 'login.html';
             }
             preloader(false);
