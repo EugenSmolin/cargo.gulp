@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
    <meta charset="UTF-8">
-   <title>TransferPage</title>
+   <title>Список документов</title>
    <link rel="stylesheet" href="libs/bootstrap/bootstrap.css">
    <link rel="stylesheet" href="libs/fontawesome/fontawesome-all.css">
    <link rel="stylesheet" href="css/main.css">
@@ -34,7 +34,7 @@
 
 <!-- SIDEBAR MENU -->
 <div id="sidebar-wrapper">
-   <div class="admin_text" id="js-close_sidebar">Admin Panel</div>
+   <div class="admin_text" id="js-close_sidebar">Admin Panel Cargo</div>
    <!-- Menu TABS -->
    <ul class="sidebar-tabs-header">
       <li>
@@ -73,16 +73,32 @@
 
 <!-- Main Content -->
 <div class="main-content">
-   <!-- ===== ПЕРЕВОДЫ ===== -->
-   <div class="transfer">
-      <h1>Переводы</h1>
+   <!-- ===== ДОКУМЕНТЫ ===== -->
+   <div class="documents">
+      <!--<h3>Список документов</h3>-->
+      <div class="navDocument">
+         <div class="searchBlock">
+            <input class="searchBlock__input" id="js-input_search" placeholder="Поиск...">
+            <button class="searchBlock__btn" id="js-btn_search">Поиск</button>
+         </div>
+         <button class="btn-custom btn-custom-create_doc" id="js-btn_create_document">Создать документ</button>
+      </div>
+      <table class="tablesorter" id="js-documents_lists">
+         <thead>
+         <tr>
+            <th>Список документов</th>
+         </tr>
+         </thead>
+         <tbody></tbody>
+      </table>
    </div>
 </div>
 
 
 <script src="libs/jquery/jquery-3.3.1.min.js"></script>
-<script src="js/jquery.cookie.js"></script>
 <script src="libs/bootstrap/bootstrap.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
 <script src="js/main.js" defer></script>
+<script src="js/ajax_documents.js" defer></script>
 </body>
 </html>

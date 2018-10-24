@@ -22,12 +22,12 @@ const pngquant = require('imagemin-pngquant'); // доп. сжимает png
 
 // === ПУТИ
 const folder = {
-	prodaction: { // Складываем готовые файлы после сборки
-      html: 'prodaction/',
-      js: 'prodaction/js/',
-      css: 'prodaction/css/',
-      img: 'prodaction/images/',
-      fonts: 'prodaction/fonts/'
+	production: { // Складываем готовые файлы после сборки
+      html: 'production/',
+      js: 'production/js/',
+      css: 'production/css/',
+      img: 'production/images/',
+      fonts: 'production/fonts/'
   },
   development: { // Пути откуда брать исходники
       html: 'development/**/*.html',
@@ -43,12 +43,12 @@ const folder = {
       img: 'development/images/**/*.*',
       fonts: 'development/fonts/**/*.*'
   },
-  clean: './prodaction/front/'
+  clean: './production/front/'
 };
 
 // === НАСТРОЙКИ СЕРВЕРА
 const config = {
-    proxy: 'cargo.gulp',
+    proxy: 'cargo-gulp-test',
     host: 'localhost',
     port: 6600
 };
@@ -72,7 +72,7 @@ gulp.task('scss', function() {
 		sourcemaps.init(),
 		sass(),
 		sourcemaps.write('.'),
-		gulp.dest(folder.prodaction.css)
+		gulp.dest(folder.production.css)
 	).on('error', notify.onError());
 });
 
@@ -80,7 +80,7 @@ gulp.task('scss', function() {
 gulp.task('html', function () {
   return gulp.src(folder.development.html)
     .pipe(rigger())
-    .pipe(gulp.dest(folder.prodaction.html));
+    .pipe(gulp.dest(folder.production.html));
     // .pipe(reload({stream: true})); // И перезагрузим наш сервер для обновлений
 });
 
@@ -88,7 +88,7 @@ gulp.task('html', function () {
 // gulp.task('js', function() {
 //   return gulp.src(folder.development.js)
 //     .pipe(concat('libs.js'))
-//     .pipe(gulp.dest(folder.prodaction.js));
+//     .pipe(gulp.dest(folder.production.js));
 // });
 
 // === IMG
@@ -100,12 +100,12 @@ gulp.task('image', function () {
         use: [pngquant()],
         interlaced: true
     }))
-    .pipe(gulp.dest(folder.prodaction.img));
+    .pipe(gulp.dest(folder.production.img));
 });
 
 // === CLEAN
 gulp.task('clean', function() {
-	return del('prodaction/');
+	return del('production/');
 });
 
 // === ASSETS
@@ -113,12 +113,12 @@ gulp.task('assets', function() {
 	return gulp.src('development/**', {since: gulp.lastRun('assets')}) // обновляет последние измененные файлы
 		// .pipe(newer('public')) // не повторяет файлы, компилит новые
 		// .pipe(debug({title: 'assets'}))
-		.pipe(gulp.dest('prodaction/'));
+		.pipe(gulp.dest('production/'));
 });
 
-// === PRODACTION
-// gulp.task('prodaction', gulp.series('clean', gulp.parallel('scss', 'assets'), ['html', 'image']));
-gulp.task('prodaction', gulp.series('clean', ['assets', 'scss', 'html', 'image']));
+// === PRODUCTION
+// gulp.task('production', gulp.series('clean', gulp.parallel('scss', 'assets'), ['html', 'image']));
+gulp.task('production', gulp.series('clean', ['assets', 'scss', 'html', 'image']));
 
 // === WATCH
 gulp.task('watch', function() {
@@ -136,8 +136,8 @@ gulp.task('server', function() {
     notify: false
 	});
 
-	browserSync.watch('prodaction/**/*.*').on('change', browserSync.reload);
+	browserSync.watch('production/**/*.*').on('change', browserSync.reload);
 });
 
 // === START
-gulp.task('start', gulp.series('prodaction', gulp.parallel('watch', 'server')));
+gulp.task('start', gulp.series('production', gulp.parallel('watch', 'server')));
