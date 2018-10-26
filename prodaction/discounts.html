@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
    <meta charset="UTF-8">
-   <title>ClientsScreenPage</title>
+   <title>Список скидок</title>
    <link rel="stylesheet" href="libs/bootstrap/bootstrap.css">
    <link rel="stylesheet" href="libs/fontawesome/fontawesome-all.css">
    <link rel="stylesheet" href="css/main.css">
@@ -34,7 +34,7 @@
 
 <!-- SIDEBAR MENU -->
 <div id="sidebar-wrapper">
-   <div class="admin_text" id="js-close_sidebar">Admin Panel Cargo</div>
+   <div class="admin_text" id="js-close_sidebar">Admin Panel</div>
    <!-- Menu TABS -->
    <ul class="sidebar-tabs-header">
       <li>
@@ -72,13 +72,53 @@
 
 
 <!-- Main Content -->
-<div class="main-content"></div>
+<div class="main-content">
+   <!-- ===== СКИДКИ ===== -->
+   <div class="discounts">
+      <div class="discounts_nav">
+         <button class="btn-custom btn_active_discounts" id="btn_active_discounts">Активные</button>
+         <button class="btn-custom btn_archive_discounts" id="btn_archive_discounts">Архив</button>
+         <button class="btn-custom btn_create_discounts" id="btn_create_discounts">Создать</button>
+         <button class="btn-custom" id="btn_discount_statistics">Статистика</button>
+         <span class="search_block">
+            <input id="input_search_discounts" type="text" placeholder="Поиск...">
+            <button id="btn_search_discounts" class="btn-search">Поиск</button>
+         </span>
+      </div>
+
+      <table id="table_discounts" class="tablesorter">
+         <thead>
+         <tr>
+            <th>№</th>
+            <th class="sort_name">
+               Наименование
+               <span class="arrow_sort"></span>
+            </th>
+            <th class="sort_size">
+               Размер, %
+               <span class="arrow_sort"></span>
+            </th>
+            <th class="sort_category">
+               Категория
+               <span class="arrow_sort"></span>
+            </th>
+            <th class="sort_date">
+               Окончание действия
+               <span class="arrow_sort"></span>
+            </th>
+            <th>Локация</th>
+         </tr>
+         </thead>
+         <tbody></tbody>
+      </table>
+   </div>
+</div>
 
 
 <script src="libs/jquery/jquery-3.3.1.min.js"></script>
 <script src="js/jquery.cookie.js"></script>
 <script src="libs/bootstrap/bootstrap.min.js"></script>
-<!--<script src="js/ajax_clients_screen.js" defer></script>-->
-<script src="js/cargo-widget.min.js"></script>
+<script src="js/main.js" defer></script>
+<script src="js/ajax_discounts.js" defer></script>
 </body>
 </html>
