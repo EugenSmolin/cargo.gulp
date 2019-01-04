@@ -20,32 +20,6 @@ const pngquant = require('imagemin-pngquant'); // доп. сжимает png
 // const minify = require('gulp-minify-css'); // минифицирует css
 // const uglify = require('gulp-uglify'); // минифицирует js
 
-// === ПУТИ
-const folder = {
-	prodaction: { // Складываем готовые файлы после сборки
-      html: 'prodaction/',
-      js: 'prodaction/js/',
-      css: 'prodaction/css/',
-      img: 'prodaction/images/',
-      fonts: 'prodaction/fonts/'
-  },
-  development: { // Пути откуда брать исходники
-      html: 'development/**/*.html',
-      js: 'development/js/*.js',
-      scss: 'development/scss/*.scss',
-      img: 'development/images/**/*.*',
-      fonts: 'development/fonts/**/*.*'
-  },
-  watch: { // Указываем, за изменением каких файлов мы хотим наблюдать
-      html: 'development/**/*.html',
-      js: 'development/js/**/*.js',
-      scss: 'development/scss/**/*.scss',
-      img: 'development/images/**/*.*',
-      fonts: 'development/fonts/**/*.*'
-  },
-  clean: './prodaction/front/'
-};
-
 // === НАСТРОЙКИ СЕРВЕРА
 const config = {
     proxy: 'cargo.gulp',
@@ -54,90 +28,61 @@ const config = {
 };
 
 // === SASS
-gulp.task('scss', function() {
-	return multipipe(
-		gulp.src(folder.development.scss),
-		plumber({
-			errorHandler: notify.onError(function(err) {
-				return {
-					title: 'scss',
-					message: err.message
-				};
-			})
-		}),
-		autoprefixer({
-			browsers: ['last 16 versions'],
-      	cascade: false
-		}),
-		sourcemaps.init(),
-		sass(),
-		sourcemaps.write('.'),
-		gulp.dest(folder.prodaction.css)
-	).on('error', notify.onError());
+gulp.task('scss', function () {
+    return multipipe(
+        gulp.src('app/front/scss/*.*'),
+        plumber({
+            errorHandler: notify.onError(function (err) {
+                return {
+                    title: 'scss',
+                    message: err.message
+                };
+            })
+        }),
+        autoprefixer({
+            browsers: ['last 16 versions'],
+            cascade: false
+        }),
+        sourcemaps.init(),
+        sass(),
+        sourcemaps.write('.'),
+        gulp.dest('app/front/css')
+    ).on('error', notify.onError());
 });
 
-// === HTML
-gulp.task('html', function () {
-  return gulp.src(folder.development.html)
-    .pipe(rigger())
-    .pipe(gulp.dest(folder.prodaction.html));
-    // .pipe(reload({stream: true})); // И перезагрузим наш сервер для обновлений
+// // === CLEAN
+gulp.task('clean', function () {
+    return del('app/front/css');
 });
 
-// === JS
-// gulp.task('js', function() {
-//   return gulp.src(folder.development.js)
-//     .pipe(concat('libs.js'))
-//     .pipe(gulp.dest(folder.prodaction.js));
-// });
-
-// === IMG
-gulp.task('image', function () {
-  return gulp.src(folder.development.img) 
-    .pipe(imagemin({ 
-        progressive: true,
-        svgoPlugins: [{removeViewBox: false}],
-        use: [pngquant()],
-        interlaced: true
-    }))
-    .pipe(gulp.dest(folder.prodaction.img));
+// // === ASSETS
+gulp.task('assets', function () {
+    return gulp.src('app/front/**', {since: gulp.lastRun('assets')}) // обновляет последние измененные файлы
+    // .pipe(newer('public')) // не повторяет файлы, компилит новые
+    // .pipe(debug({title: 'assets'}))
+        .pipe(gulp.dest('app/front/'));
 });
 
-// === CLEAN
-gulp.task('clean', function() {
-	return del('prodaction/');
-});
-
-// === ASSETS
-gulp.task('assets', function() {
-	return gulp.src('development/**', {since: gulp.lastRun('assets')}) // обновляет последние измененные файлы
-		// .pipe(newer('public')) // не повторяет файлы, компилит новые
-		// .pipe(debug({title: 'assets'}))
-		.pipe(gulp.dest('prodaction/'));
-});
-
-// === PRODACTION
-// gulp.task('prodaction', gulp.series('clean', gulp.parallel('scss', 'assets'), ['html', 'image']));
-gulp.task('prodaction', gulp.series('clean', ['assets', 'scss', 'html', 'image']));
+// === PRODUCTION
+gulp.task('build', gulp.series('clean', gulp.parallel('scss', 'assets')));
 
 // === WATCH
-gulp.task('watch', function() {
-	gulp.watch(folder.development.scss, gulp.series('scss'));
-	gulp.watch(folder.development.html, gulp.series('html'));
-	gulp.watch('development/**/*.*', gulp.series('assets'));
+gulp.task('watch', function () {
+    gulp.watch('app/front/scss/*.*', gulp.series('scss'));
+    // gulp.watch('app/front/**/*.*', gulp.series('assets'));
 });
 
 // === SERVER
-gulp.task('server', function() {
-	browserSync.init({
-    proxy: config.proxy,
-    host: config.host,
-    port: config.port,
-    notify: false
-	});
+gulp.task('server', function () {
+    browserSync.init({
+        proxy: config.proxy,
+        host: config.host,
+        port: config.port,
+        notify: false
+    });
 
-	browserSync.watch('prodaction/**/*.*').on('change', browserSync.reload);
+    browserSync.watch('app/front/**/*.*').on('change', browserSync.reload);
 });
 
 // === START
-gulp.task('start', gulp.series('prodaction', gulp.parallel('watch', 'server')));
+gulp.task('start', gulp.series('build', gulp.parallel('watch', 'server')));
